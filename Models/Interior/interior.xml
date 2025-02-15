@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>interior.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>interieur</object-name>
+    <object-name>inttour</object-name>
+    <object-name>planchet</object-name>
+    <object-name>intPassengerWindows</object-name>
+    <object-name>intPassengerWindowsrear</object-name>
+    <object-name>intbay</object-name>
+    <object-name>inttourbay</object-name>
+    <object-name>intPassengerWindowsbay</object-name>
+    <object-name>cloisonmixte</object-name>
+    <object-name>cloison</object-name>
+    <object-name>intdoor</object-name>
+    <object-name>intcargodoorAH</object-name>
+    <object-name>intcargodoorAB</object-name>
+    <object-name>intcargodoorBH</object-name>
+    <object-name>intcargodoorBB</object-name>
+    
+    <!-- Objets transparents -->
+    <object-name>intvitres</object-name>
+    <object-name>intPortHoles</object-name>
+    <object-name>intPortHolesrear</object-name>
+    <object-name>intPortHolesbay</object-name>
+  </animation>
+
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/Britannia/Models/Effects/Glass/glass</inherits-from>
+    <object-name>intvitres</object-name>
+    <object-name>intPortHoles</object-name>
+  </effect>
+  
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>intvitres</object-name>
+    <object-name>intPortHoles</object-name>
+  </effect>
+  
+  <!-- Les sièges avant -->
+  <model>
+    <name>Seats1</name>
+    <path>Aircraft/Britannia/Models/Interior/Seats/all-seats1.xml</path>
+  </model>
+  
+  <!-- Les sièges arrières -->
+  <model>
+    <name>Seats2</name>
+    <path>Aircraft/Britannia/Models/Interior/Seats/all-seats2.xml</path>
+  </model>
+  
+  <animation>
+    <type>select</type>
+    <object-name>intPortHoles</object-name>
+    <object-name>inttourbay</object-name>
+    <object-name>Seats1</object-name>
+    <condition>
+      <equals>
+        <property>/sim/multiplay/generic/int[7]</property>
+        <value>0</value>
+      </equals>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>cloisonmixte</object-name>
+    <condition>
+      <equals>
+        <property>/sim/multiplay/generic/int[7]</property>
+        <value>1</value>
+      </equals>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>intPortHolesrear</object-name>
+    <object-name>Seats2</object-name>
+    <condition>
+      <not-equals>
+        <property>/sim/multiplay/generic/int[7]</property>
+        <value>2</value>
+      </not-equals>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>intPassengerWindowsrear</object-name>
+    <condition>
+      <equals>
+        <property>/sim/multiplay/generic/int[7]</property>
+        <value>2</value>
+      </equals>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>intPassengerWindows</object-name>
+    <object-name>intPassengerWindowsbay</object-name>
+    <condition>
+      <not-equals>
+        <property>/sim/multiplay/generic/int[7]</property>
+        <value>0</value>
+      </not-equals>
+    </condition>
+  </animation>
+  
+  <model>
+    <path>Aircraft/Britannia/Models/Interior/PilotSeat/seat.xml</path>
+    <offsets>
+      <x-m> -16.256 </x-m>
+      <y-m>  -0.522 </y-m>
+      <z-m>  -1.554 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Britannia/Models/Interior/PilotSeat/seat.xml</path>
+    <offsets>
+      <x-m> -16.256 </x-m>
+      <y-m>   0.522 </y-m>
+      <z-m>  -1.554 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Pilote -->
+  <model>
+    <path>Aircraft/Britannia/Models/Pilot/pilot.xml</path>
+    <offsets>
+      <x-m> -16.400 </x-m>
+      <y-m>  -0.528 </y-m>
+      <z-m>  -1.541 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Planche de bord -->
+  <model>
+    <path>Aircraft/Britannia/Models/Interior/Panel/panel.xml</path>
+    <offsets>
+      <x-m> -17.130 </x-m>
+      <y-m>   0.000 </y-m>
+      <z-m>  -1.505 </z-m>
+    </offsets>
+  </model>
+
+  <!-- door cargo -->
+  <animation>
+    <name>IntdoorCargo</name>
+    <object-name>intbay</object-name>
+    <object-name>inttourbay</object-name>
+    <object-name>intPassengerWindowsbay</object-name>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <object-name>IntdoorCargo</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.passenger.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>IntdoorCargo</object-name>
+    <property>sim/model/door-positions/passenger/position-norm</property>
+    <condition>
+      <not-equals>
+        <property>/sim/multiplay/generic/int[7]</property>
+        <value>0</value>
+      </not-equals>
+    </condition>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -90 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -11.45104 </x-m>
+      <y-m>  -0.64571 </y-m>
+      <z-m>  -0.13715 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- doors soute -->
+  <animation>
+    <type>pick</type>
+    <object-name>intcargodoorAH</object-name>
+    <object-name>intcargodoorAB</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.souteA.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>intcargodoorAH</object-name>
+    <property>sim/model/door-positions/souteA/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 165 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -9.57806 </x-m>
+      <y-m>  1.73341 </y-m>
+      <z-m> -2.69395 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>intcargodoorAB</object-name>
+    <property>sim/model/door-positions/souteA/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>    0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -160 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -9.57806 </x-m>
+      <y-m>  1.12822 </y-m>
+      <z-m> -3.99684 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>intcargodoorBH</object-name>
+    <object-name>intcargodoorBB</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.souteB.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>intcargodoorBH</object-name>
+    <property>sim/model/door-positions/souteB/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 165 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m>  3.67201 </x-m>
+      <y-m>  1.73341 </y-m>
+      <z-m> -2.69395 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>intcargodoorBB</object-name>
+    <property>sim/model/door-positions/souteB/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>    0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -160 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m>  3.67201 </x-m>
+      <y-m>  1.12822 </y-m>
+      <z-m> -3.99684 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>
