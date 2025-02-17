@@ -64,7 +64,8 @@
     <object-name>Propeller3</object-name>
     <object-name>Propeller4</object-name>
 	
- <!--   <object-name>doorAG</object-name>
+ <!--
+    <object-name>doorAG</object-name>
     <object-name>doorAD</object-name>
     <object-name>doorGG1</object-name>
     <object-name>doorGD1</object-name>
@@ -85,18 +86,19 @@
     <object-name>cargodoorBB</object-name>
     
     <object-name>holes</object-name> -->
-<!--    <object-name>UCstrutNose</object-name>
+<!--
+    <object-name>UCstrutNose</object-name>
     <object-name>Nosegear</object-name>
     <object-name>UCstrutPort</object-name>
     <object-name>MainGearPort</object-name>
     <object-name>UCstrutStbd</object-name>
     <object-name>MainGearStbd</object-name>-->
 
-
     <!-- Transparent -->
-<!--    <object-name>vitres</object-name>
+<!--
+    <object-name>vitres</object-name>
     <object-name>PortHoles</object-name>
-    <object-name>PortHolesbay</object-name>
+    <object-name>PortHolesbay</object-name> -->
     <object-name>PropDisc1</object-name>
     <object-name>PropDisc2</object-name>
     <object-name>PropDisc3</object-name>
@@ -104,14 +106,15 @@
     <object-name>PropBlur1</object-name>
     <object-name>PropBlur2</object-name>
     <object-name>PropBlur3</object-name>
-    <object-name>PropBlur4</object-name> -->
+    <object-name>PropBlur4</object-name>
   </animation>
 
   <animation>
     <type>material</type>
     <object-name>Fuselage</object-name>
     <object-name>Wings</object-name>
-<!--    <object-name>flapsG1</object-name>
+<!--
+    <object-name>flapsG1</object-name>
     <object-name>flapsG2</object-name>
     <object-name>flapsD1</object-name>
     <object-name>flapsD2</object-name> -->
@@ -124,7 +127,8 @@
     <object-name>Engine2</object-name>
     <object-name>Engine3</object-name>
     <object-name>Engine4</object-name>
-<!--    <object-name>doorAG</object-name>
+<!--
+    <object-name>doorAG</object-name>
     <object-name>doorAD</object-name>
     <object-name>doorGG1</object-name>
     <object-name>doorGD1</object-name>
@@ -148,13 +152,15 @@
     <object-name>cargodoorBB</object-name>
     
     <object-name>holes</object-name> -->
-<!--    <object-name>UCstrutNose</object-name>
+<!--
+    <object-name>UCstrutNose</object-name>
     <object-name>Nosegear</object-name>
     <object-name>UCstrutPort</object-name>
     <object-name>MainGearPort</object-name>
     <object-name>UCstrutStbd</object-name>
     <object-name>MainGearStbd</object-name> -->
-<!--    <object-name>propellerGE</object-name>
+<!--
+    <object-name>propellerGE</object-name>
     <object-name>propellerGI</object-name>
     <object-name>propellerDI</object-name>
     <object-name>propellerDE</object-name> -->
@@ -173,7 +179,8 @@
     <inherits-from>Aircraft/Britannia/Models/Effects/BumpMap/bumpmap</inherits-from>
     <object-name>Fuselage</object-name>
     <object-name>Wings</object-name>
-<!--    <object-name>flapsG1</object-name>
+<!--
+    <object-name>flapsG1</object-name>
     <object-name>flapsG2</object-name>
     <object-name>flapsD1</object-name>
     <object-name>flapsD2</object-name> -->
@@ -186,7 +193,8 @@
     <object-name>Engine2</object-name>
     <object-name>Engine3</object-name>
     <object-name>Engine4</object-name>
-<!--    <object-name>doorAG</object-name>
+<!--
+    <object-name>doorAG</object-name>
     <object-name>doorAD</object-name>
     <object-name>doorGG1</object-name>
     <object-name>doorGD1</object-name>
@@ -214,7 +222,8 @@
     <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
     <object-name>Fuselage</object-name>
     <object-name>Wings</object-name>
- <!--   <object-name>flapsG1</object-name>
+ <!--
+ <object-name>flapsG1</object-name>
     <object-name>flapsG2</object-name>
     <object-name>flapsD1</object-name>
     <object-name>flapsD2</object-name> -->
@@ -227,7 +236,8 @@
     <object-name>Engine2</object-name>
     <object-name>Engine3</object-name>
     <object-name>Engine4</object-name>
- <!--   <object-name>doorAG</object-name>
+ <!--
+ <object-name>doorAG</object-name>
     <object-name>doorAD</object-name>
     <object-name>doorGG1</object-name>
     <object-name>doorGD1</object-name>
@@ -252,29 +262,32 @@
   </effect>
   
   <!-- working for Rembrandt -->
-<!--  <effect>
+<!-- 
+  <effect>
     <inherits-from>Aircraft/Britannia/Models/Effects/Glass/glass</inherits-from>
     <object-name>vitres</object-name>
     <object-name>PortHoles</object-name>
     <object-name>PortHolesbay</object-name>
   </effect> -->
   
-<!--  <effect>
+
+  <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>vitres</object-name>
+<!--    <object-name>vitres</object-name>
     <object-name>PortHoles</object-name>
-    <object-name>PortHolesbay</object-name>
-    <object-name>propdiskGE</object-name>
-    <object-name>propdiskGI</object-name>
-    <object-name>propdiskDI</object-name>
-    <object-name>propdiskDE</object-name>
-    <object-name>propblurGE</object-name>
-    <object-name>propblurGI</object-name>
-    <object-name>propblurDI</object-name>
-    <object-name>propblurDE</object-name>
-  </effect> -->
+    <object-name>PortHolesbay</object-name> -->
+    <object-name>PropDisc1</object-name>
+    <object-name>PropDisc2</object-name>
+    <object-name>PropDisc3</object-name>
+    <object-name>PropDisc4</object-name>
+    <object-name>PropBlur1</object-name>
+    <object-name>PropBlur2</object-name>
+    <object-name>PropBlur3</object-name>
+    <object-name>PropBlur4</object-name>
+  </effect>
   
-<!--  <animation>
+<!--
+  <animation>
     <type>select</type>
     <object-name>PortHoles</object-name>
     <condition>
@@ -346,7 +359,8 @@
   </model>
 
   <!-- Trails -->
-<!--  <model>
+<!--
+  <model>
     <path>Aircraft/Britannia/Models/Effects/trail/trailLE.xml</path>
     <offsets>
       <x-m>  0.163 </x-m> <y-m> -9.053 </y-m> <z-m> -2.136 </z-m>
@@ -383,7 +397,8 @@
   </model>
 
   <!-- Hide/unhide uncercarriage  -->
-<!--  <animation>
+<!--
+  <animation>
     <type>select</type>
     <object-name>Nosegear</object-name>
     <condition>
@@ -416,21 +431,23 @@
     </condition>
   </animation> -->
 
-  <!-- Les hélices --> 
-<!--  <animation>
-    <name>propellerCompleteGE</name>
-    <object-name>propdiskGE</object-name>
-    <object-name>propblurGE</object-name>
-    <object-name>propellerGE</object-name>
-  </animation>  -->
+  <!-- Propeller 1 --> 
+ <animation>
+    <name>propellerComplete1</name>
+    <object-name>Spinner1</object-name>
+    <object-name>propdisk1</object-name>
+    <object-name>propblur1</object-name>
+    <object-name>propeller1</object-name>
+  </animation> 
 
-  <!-- Séléction de l'objet visible en fonction des rpm -->
-<!--  <animation>
+  <!-- visibility of individual blades, disk and blur dependant upon RPM -->
+<animation>
     <type>select</type>
-    <object-name>propdiskGE</object-name>
+    <object-name>propdisk1</object-name>
     <condition>
       <greater-than>
         <property>engines/engine[0]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[0]/propeller-rpm</property>
         <value>1100</value>
       </greater-than>
     </condition>
@@ -438,15 +455,15 @@
 
   <animation>
     <type>select</type>
-    <object-name>propblurGE</object-name>
+    <object-name>propblur1</object-name>
     <condition>
     <and>
       <greater-than>
-        <property>engines/engine[0]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[0]/propeller-rpm</property>
         <value>500.000</value>
       </greater-than>
       <less-than>
-        <property>engines/engine[0]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[0]/propeller-rpm</property>
         <value>1100.001</value>
       </less-than>
     </and>
@@ -455,10 +472,10 @@
 
   <animation>
     <type>select</type>
-    <object-name>propellerGE</object-name>
+    <object-name>propeller1</object-name>
     <condition>
       <less-than>
-        <property>engines/engine[0]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[0]/propeller-rpm</property>
         <value>1100</value>
       </less-than>
     </condition>
@@ -466,38 +483,39 @@
 
   <animation>
     <type>spin</type>
-    <object-name>propellerCompleteGE</object-name>
+    <object-name>propellerComplete1</object-name>
     <condition>
       <greater-than>
-        <property>engines/engine[0]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[0]/propeller-rpm</property>
         <value> 5 </value>
       </greater-than>
     </condition>
-    <property>engines/engine[0]/rpm</property>
+    <property>fdm/jsbsim/propulsion/engine[0]/propeller-rpm</property>
     <factor> 1 </factor>
     <center>
-      <x-m> -7.494 </x-m> <y-m> -9.053 </y-m> <z-m> -2.097 </z-m>
+      <x-m> -6.9571 </x-m> <y-m> -9.6234 </y-m> <z-m> -0.6050 </z-m>
     </center>
     <axis>
       <x> -1 </x> <y>  0 </y> <z>  0 </z>
     </axis>
-  </animation> -->
+  </animation>
 
-  <!-- Propellers  --> 
- <!-- <animation>
-    <name>propellerCompleteGI</name>
-    <object-name>propdiskGI</object-name>
-    <object-name>propblurGI</object-name>
-    <object-name>propellerGI</object-name>
-  </animation> -->
+  <!-- Propeller 2 -->  
+- <animation>
+    <name>propellerComplete2</name>
+    <object-name>Spinner2</object-name>
+    <object-name>propdisk2</object-name>
+    <object-name>propblur2</object-name>
+    <object-name>propeller2</object-name>
+  </animation>
 
-  <!-- Séléction de l'objet visible en fonction des rpm -->
- <!-- <animation>
+  <!-- visibility of individual blades, disk and blur dependant upon RPM -->
+  <animation>
     <type>select</type>
-    <object-name>propdiskGI</object-name>
+    <object-name>propdisk2</object-name>
     <condition>
       <greater-than>
-        <property>engines/engine[1]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[1]/propeller-rpm</property>
         <value>1100</value>
       </greater-than>
     </condition>
@@ -505,15 +523,15 @@
 
   <animation>
     <type>select</type>
-    <object-name>propblurGI</object-name>
+    <object-name>propblur2</object-name>
     <condition>
     <and>
       <greater-than>
-        <property>engines/engine[1]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[1]/propeller-rpm</property>
         <value>500.000</value>
       </greater-than>
       <less-than>
-        <property>engines/engine[1]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[1]/propeller-rpm</property>
         <value>1100.001</value>
       </less-than>
     </and>
@@ -522,10 +540,10 @@
 
   <animation>
     <type>select</type>
-    <object-name>propellerGI</object-name>
+    <object-name>propeller2</object-name>
     <condition>
       <less-than>
-        <property>engines/engine[1]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[1]/propeller-rpm</property>
         <value>1100</value>
       </less-than>
     </condition>
@@ -533,38 +551,41 @@
 
   <animation>
     <type>spin</type>
-    <object-name>propellerCompleteGI</object-name>
+    <object-name>propellerComplete2</object-name>
     <condition>
       <greater-than>
-        <property>engines/engine[1]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[1]/propeller-rpm</property>
         <value> 5 </value>
       </greater-than>
     </condition>
-    <property>engines/engine[1]/rpm</property>
+    <property>fdm/jsbsim/propulsion/engine[1]/propeller-rpm</property>
     <factor> 1 </factor>
     <center>
-      <x-m> -7.822 </x-m> <y-m> -4.592 </y-m> <z-m> -2.551 </z-m>
+      <x-m> -7.6399 </x-m> <y-m> -4.7527 </y-m> <z-m> -0.7573 </z-m>
     </center>
     <axis>
       <x> -1 </x> <y>  0 </y> <z>  0 </z>
     </axis>
-  </animation> -->
+  </animation>
 
-  <!-- Les hélices --> 
-<!--  <animation>
-    <name>propellerCompleteDI</name>
-    <object-name>propdiskDI</object-name>
-    <object-name>propblurDI</object-name>
-    <object-name>propellerDI</object-name>
-  </animation> -->
+  <!-- Propeller 3 --> 
 
-  <!-- Séléction de l'objet visible en fonction des rpm -->
- <!-- <animation>
+  <animation>
+    <name>propellerComplete3</name>
+    <object-name>Spinner3</object-name>
+    <object-name>propdisk3</object-name>
+    <object-name>propblur3</object-name>
+    <object-name>propeller3</object-name>
+  </animation>
+
+  <!-- visibility of individual blades, disk and blur dependant upon RPM -->
+ 
+ <animation>
     <type>select</type>
-    <object-name>propdiskDI</object-name>
+    <object-name>propdisk3</object-name>
     <condition>
       <greater-than>
-        <property>engines/engine[2]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[2]/propeller-rpm</property>
         <value>1100</value>
       </greater-than>
     </condition>
@@ -572,15 +593,15 @@
 
   <animation>
     <type>select</type>
-    <object-name>propblurDI</object-name>
+    <object-name>propblur3</object-name>
     <condition>
     <and>
       <greater-than>
-        <property>engines/engine[2]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[2]/propeller-rpm</property>
         <value>500.000</value>
       </greater-than>
       <less-than>
-        <property>engines/engine[2]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[2]/propeller-rpm</property>
         <value>1100.001</value>
       </less-than>
     </and>
@@ -589,10 +610,10 @@
 
   <animation>
     <type>select</type>
-    <object-name>propellerDI</object-name>
+    <object-name>propeller3</object-name>
     <condition>
       <less-than>
-        <property>engines/engine[2]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[2]/propeller-rpm</property>
         <value>1100</value>
       </less-than>
     </condition>
@@ -600,40 +621,43 @@
 
   <animation>
     <type>spin</type>
-    <object-name>propellerCompleteDI</object-name>
+    <object-name>propellerComplete3</object-name>
     <condition>
       <greater-than>
-        <property>engines/engine[2]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[2]/propeller-rpm</property>
         <value> 5 </value>
       </greater-than>
     </condition>
-    <property>engines/engine[2]/rpm</property>
+    <property>fdm/jsbsim/propulsion/engine[2]/propeller-rpm</property>
     <factor> 1 </factor>
     <center>
-      <x-m> -7.822 </x-m> <y-m>  4.592 </y-m> <z-m> -2.551 </z-m>
+       <x-m> -7.6399 </x-m> <y-m> 4.7527 </y-m> <z-m> -0.7573 </z-m>
     </center>
     <axis>
       <x> -1 </x>
       <y>  0 </y>
       <z>  0 </z>
     </axis>
-  </animation> -->
+  </animation>
 
-  <!-- Les hélices --> 
- <!-- <animation>
-    <name>propellerCompleteDE</name>
-    <object-name>propdiskDE</object-name>
-    <object-name>propblurDE</object-name>
-    <object-name>propellerDE</object-name>
-  </animation> -->
+  <!-- Propeller 4 --> 
 
-  <!-- Séléction de l'objet visible en fonction des rpm -->
-<!--  <animation>
+ <animation>
+    <name>propellerComplete4</name>
+    <object-name>Spinner4</object-name>
+    <object-name>propdisk4</object-name>
+    <object-name>propblur4</object-name>
+    <object-name>propeller4</object-name>
+  </animation>
+
+  <!-- visibility of individual blades, disk and blur dependant upon RPM -->
+
+  <animation>
     <type>select</type>
-    <object-name>propdiskDE</object-name>
+    <object-name>propdisk4</object-name>
     <condition>
       <greater-than>
-        <property>engines/engine[3]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[3]/propeller-rpm</property>
         <value>1100</value>
       </greater-than>
     </condition>
@@ -641,15 +665,15 @@
 
   <animation>
     <type>select</type>
-    <object-name>propblurDE</object-name>
+    <object-name>propblur4</object-name>
     <condition>
     <and>
       <greater-than>
-        <property>engines/engine[3]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[3]/propeller-rpm</property>
         <value>500.000</value>
       </greater-than>
       <less-than>
-        <property>engines/engine[3]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[3]/propeller-rpm</property>
         <value>1100.001</value>
       </less-than>
     </and>
@@ -658,10 +682,10 @@
 
   <animation>
     <type>select</type>
-    <object-name>propellerDE</object-name>
+    <object-name>propeller4</object-name>
     <condition>
       <less-than>
-        <property>engines/engine[3]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[3]/propeller-rpm</property>
         <value>1100</value>
       </less-than>
     </condition>
@@ -669,17 +693,17 @@
 
   <animation>
     <type>spin</type>
-    <object-name>propellerCompleteDE</object-name>
+    <object-name>propellerComplete4</object-name>
     <condition>
       <greater-than>
-        <property>engines/engine[3]/rpm</property>
+        <property>fdm/jsbsim/propulsion/engine[3]/propeller-rpm</property>
         <value> 5 </value>
       </greater-than>
     </condition>
-    <property>engines/engine[3]/rpm</property>
+    <property>fdm/jsbsim/propulsion/engine[3]/propeller-rpm</property>
     <factor> 1 </factor>
     <center>
-      <x-m> -7.494 </x-m> <y-m>  9.053 </y-m> <z-m> -2.097 </z-m>
+      <x-m> -6.9571 </x-m> <y-m> 9.6234 </y-m> <z-m> -0.6050 </z-m>
     </center>
     <axis>
       <x> -1 </x> <y>  0 </y> <z>  0 </z>
@@ -739,7 +763,8 @@
     </axis>
   </animation>
 
- <!-- <animation>
+ <!--
+ <animation>
     <type>rotate</type>
     <object-name>AileronTabPort</object-name>
     <property>surface-positions/right-aileron-pos-deg</property>
@@ -762,7 +787,8 @@
   </animation> -->
 
   <!-- Flap control -->
- <!-- <animation>
+ <!--
+ <animation>
     <type>translate</type>
     <object-name>flapsG1</object-name>
     <object-name>flapsD1</object-name>
@@ -1157,7 +1183,8 @@
   </animation> -->
 
   <!-- Nosewheel steering -->
- <!-- <animation>
+ <!--
+ <animation>
     <type>rotate</type>
     <object-name>TrainAvant</object-name>
     <property>surface-positions/rudder-pos-norm</property>
@@ -1175,7 +1202,8 @@
   </animation> -->
 
   <!-- Wheel rotation -->
-<!--  <animation>
+<!--
+  <animation>
     <type>spin</type>
     <object-name>Nosegear</object-name>
     <property>gear/gear[0]/rollspeed-ms</property>
@@ -1227,7 +1255,8 @@
   </animation> -->
 
   <!-- door cargo -->
- <!-- <animation>
+ <!--
+ <animation>
     <name>doorCargo</name>
     <object-name>bay</object-name>
     <object-name>PassengerWindowsbay</object-name>
@@ -1274,7 +1303,8 @@
   </animation> -->
 
   <!-- doors soute -->
-<!--  <animation>
+<!--
+  <animation>
     <type>pick</type>
     <object-name>cargodoorAH</object-name>
     <object-name>cargodoorAB</object-name>

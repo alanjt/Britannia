@@ -203,8 +203,6 @@
 				<x-offset-m archive="y">-0.540</x-offset-m><!-- Right -->
 				<y-offset-m archive="y">0.8</y-offset-m><!-- Up    -->
 				<z-offset-m archive="y">-14.5</z-offset-m><!-- Back  -->
-			<!--	<y-offset-m archive="y">-1.067</y-offset-m> --><!-- Up    -->
-			<!--	<z-offset-m archive="y">-16.291</z-offset-m> --><!-- Back  -->
 				<pitch-offset-deg>0</pitch-offset-deg>
 				<default-field-of-view-deg>85</default-field-of-view-deg>
 			</config>
