@@ -116,18 +116,22 @@
   <model>
     <path>Aircraft/Britannia/Models/Interior/PilotSeat/seat.xml</path>
     <offsets>
-      <x-m> -16.256 </x-m>
-      <y-m>  -0.522 </y-m>
-      <z-m>  -1.554 </z-m>
+<!--      <x-m> -16.256 </x-m>  -->
+			<x-m> -14.256 </x-m>
+			<y-m>  -0.522 </y-m>
+<!---      <z-m>  -1.554 </z-m> -->
+	        <z-m>  0.5 </z-m>
     </offsets>
   </model>
 
   <model>
     <path>Aircraft/Britannia/Models/Interior/PilotSeat/seat.xml</path>
     <offsets>
-      <x-m> -16.256 </x-m>
-      <y-m>   0.522 </y-m>
-      <z-m>  -1.554 </z-m>
+<!--      <x-m> -16.256 </x-m>  -->
+			<x-m> -14.256 </x-m>
+			<y-m>  0.522 </y-m>
+<!---      <z-m>  -1.554 </z-m> -->
+	        <z-m>  0.5 </z-m>
     </offsets>
   </model>
 
@@ -135,9 +139,11 @@
   <model>
     <path>Aircraft/Britannia/Models/Pilot/pilot.xml</path>
     <offsets>
-      <x-m> -16.400 </x-m>
+      <x-m> -14.400 </x-m>
+<!--      <x-m> -16.400 </x-m> -->
       <y-m>  -0.528 </y-m>
-      <z-m>  -1.541 </z-m>
+<!---      <z-m>  -1.554 </z-m> -->
+	        <z-m>  0.5 </z-m>
     </offsets>
   </model>
   
@@ -145,9 +151,9 @@
   <model>
     <path>Aircraft/Britannia/Models/Interior/Panel/panel.xml</path>
     <offsets>
-      <x-m> -17.130 </x-m>
+      <x-m> -15.430 </x-m>
       <y-m>   0.000 </y-m>
-      <z-m>  -1.505 </z-m>
+      <z-m>  0.505 </z-m>
     </offsets>
   </model>
 

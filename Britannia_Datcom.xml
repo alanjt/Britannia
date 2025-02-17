@@ -140,9 +140,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<z>0.00</z>
 		</location>
 		<location name="EYEPOINT" unit="FT">
-			<x>-47.572</x>
-			<y>-1.2</y>
-			<z>3.05</z>
+			<x>-13.9</x>
+			<y>-0.528</y>
+			<z>1.5</z>
+ <!--     <x-m> -14.900 </x-m>
+      <y-m>  -0.528 </y-m>
+	  <z-m>  0.5 </z-m>	 -->		
 		</location>
 		<location name="VRP" unit="FT">
 			<x>0.0</x>
