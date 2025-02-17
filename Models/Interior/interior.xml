@@ -5,7 +5,7 @@
   <path>interior.ac</path>
 
   <animation>
-    <!-- Objets opaques -->
+    <!-- opaque objects -->
     <object-name>interieur</object-name>
     <object-name>inttour</object-name>
     <object-name>planchet</object-name>
@@ -22,7 +22,7 @@
     <object-name>intcargodoorBH</object-name>
     <object-name>intcargodoorBB</object-name>
     
-    <!-- Objets transparents -->
+    <!-- transparent objects -->
     <object-name>intvitres</object-name>
     <object-name>intPortHoles</object-name>
     <object-name>intPortHolesrear</object-name>
@@ -116,10 +116,8 @@
   <model>
     <path>Aircraft/Britannia/Models/Interior/PilotSeat/seat.xml</path>
     <offsets>
-<!--      <x-m> -16.256 </x-m>  -->
 			<x-m> -14.256 </x-m>
 			<y-m>  -0.522 </y-m>
-<!---      <z-m>  -1.554 </z-m> -->
 	        <z-m>  0.5 </z-m>
     </offsets>
   </model>
@@ -127,27 +125,24 @@
   <model>
     <path>Aircraft/Britannia/Models/Interior/PilotSeat/seat.xml</path>
     <offsets>
-<!--      <x-m> -16.256 </x-m>  -->
+
 			<x-m> -14.256 </x-m>
 			<y-m>  0.522 </y-m>
-<!---      <z-m>  -1.554 </z-m> -->
 	        <z-m>  0.5 </z-m>
     </offsets>
   </model>
 
-  <!-- Pilote -->
+  <!-- Captain -->
   <model>
     <path>Aircraft/Britannia/Models/Pilot/pilot.xml</path>
     <offsets>
       <x-m> -14.400 </x-m>
-<!--      <x-m> -16.400 </x-m> -->
       <y-m>  -0.528 </y-m>
-<!---      <z-m>  -1.554 </z-m> -->
-	        <z-m>  0.5 </z-m>
+	  <z-m>  0.5 </z-m>
     </offsets>
   </model>
   
-  <!-- Planche de bord -->
+  <!-- Simple instrument panel -->
   <model>
     <path>Aircraft/Britannia/Models/Interior/Panel/panel.xml</path>
     <offsets>
