@@ -270,11 +270,7 @@
     <object-name>PortHolesbay</object-name>
   </effect> -->
   
-<<<<<<< HEAD
 
-=======
-<!--
->>>>>>> 2b73376fae0b0663ad5eb69237f5d4d92d407ad1
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
 <!--    <object-name>vitres</object-name>
@@ -572,7 +568,6 @@
     </axis>
   </animation>
 
-<<<<<<< HEAD
   <!-- Propeller 3 --> 
 
   <animation>
@@ -584,20 +579,7 @@
   </animation>
 
   <!-- visibility of individual blades, disk and blur dependant upon RPM -->
- 
-=======
-  <!-- Les hélices --> 
-<!--
-  <animation>
-    <name>propellerCompleteDI</name>
-    <object-name>propdiskDI</object-name>
-    <object-name>propblurDI</object-name>
-    <object-name>propellerDI</object-name>
-  </animation> -->
-
-  <!-- Séléction de l'objet visible en fonction des rpm -->
- <!--
->>>>>>> 2b73376fae0b0663ad5eb69237f5d4d92d407ad1
+  
  <animation>
     <type>select</type>
     <object-name>propdisk3</object-name>
@@ -658,7 +640,6 @@
     </axis>
   </animation>
 
-<<<<<<< HEAD
   <!-- Propeller 4 --> 
 
  <animation>
@@ -671,19 +652,6 @@
 
   <!-- visibility of individual blades, disk and blur dependant upon RPM -->
 
-=======
-  <!-- Les hélices --> 
- <!--
- <animation>
-    <name>propellerCompleteDE</name>
-    <object-name>propdiskDE</object-name>
-    <object-name>propblurDE</object-name>
-    <object-name>propellerDE</object-name>
-  </animation> -->
-
-  <!-- Séléction de l'objet visible en fonction des rpm -->
-<!--
->>>>>>> 2b73376fae0b0663ad5eb69237f5d4d92d407ad1
   <animation>
     <type>select</type>
     <object-name>propdisk4</object-name>
