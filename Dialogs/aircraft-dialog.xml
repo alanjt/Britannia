@@ -38,24 +38,6 @@
       <halign>left</halign>
       <label>Model Type</label>
     </text>
-    <combo>
-      <row>0</row>
-      <col>1</col>
-      <name>model-type</name>
-      <pref-width>200</pref-width>
-      <property>/sim/model/fokker50/dialogs/model-type</property>
-      <value>Fokker F27 Friendship</value>
-      <value>Fokker 50</value>
-      <value>Fokker 60</value>
-      <binding>
-        <command>dialog-apply</command>
-        <object-name>model-type</object-name>
-      </binding>
-      <binding>
-        <command>nasal</command>
-        <script>fokker50.newModel()</script>
-      </binding>
-    </combo>
 
     <hrule/>
 
@@ -67,29 +49,6 @@
         <col>0</col>
         <halign>right</halign>
         <label>Dirtiness:</label>
-      </text>
-    
-      <slider>
-        <row>0</row>
-        <col>1</col>
-        <property>/sim/model/dirtiness</property>
-        <binding>
-          <command>dialog-apply</command>
-        </binding>
-        <binding>
-          <command>nasal</command>
-          <script>fokker50.applyDirt()</script>
-        </binding>
-      </slider>
-
-      <text>
-        <row>0</row>
-        <col>2</col>
-        <halign>left</halign>
-        <format>%.1f</format>
-        <label>0.1</label>
-        <property>/sim/model/dirtiness</property>
-        <live>true</live>
       </text>
 
     </group>

@@ -616,7 +616,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
          <property>systems/propulsion/thrust-coefficient</property>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
-          <table>
+          <table name="aero/coefficient/CD_propwash">
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <independentVar lookup="column">fcs/flap-pos-deg</independentVar>
             <tableData>
@@ -681,15 +681,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</function>
 			
 			<function name="aero/force/Lift_q">
-				<description>
-				Lift due to pitch rate
-				</description>
+				<description>Lift due to pitch rate</description>
 				<product>
 					<property>velocities/q-aero-rad_sec</property>
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>aero/ci2vel</property>
-					<table name="aero/derivative/CLq">
+					<table name="aero/derivative/CL_q">
 						<independentVar lookup="row">aero/Re</independentVar>
 						<tableData>
 						50290243	13.3800
@@ -713,7 +711,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>aero/ci2vel</property>
-					<table name="aero/derivative/CLad">
+					<table name="aero/derivative/CL_ad">
 						<independentVar lookup="row">aero/alpha-deg</independentVar>
 						<tableData>
 						-10	3.8960
@@ -802,7 +800,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<product>
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
-					<table>
+					<table name="aero/coefficient/CD_elevator">
 						<independentVar lookup="column">fcs/elevator-pos-deg</independentVar>
 						<independentVar lookup="row">aero/alpha-deg</independentVar>
 						<tableData>
@@ -834,7 +832,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<product>
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
-					<table>
+					<table name="aero/coefficient/CD_flap">
 						<independentVar lookup="column">fcs/flap-pos-deg</independentVar>
 						<independentVar lookup="row">aero/alpha-deg</independentVar>
 						<tableData>
@@ -869,7 +867,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>metrics/Sw-sqft</property>
 					<property>aero/bi2vel</property>
 					<property>velocities/p-aero-rad_sec</property>
-					<table>
+					<table name="aero/coefficient/CY_p">
 						<independentVar lookup="row">aero/alpha-deg</independentVar>
 						<independentVar lookup="column">aero/Re</independentVar>
 						<tableData>
@@ -897,7 +895,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</product>
 			</function>
 
-			<function name="aero/force/Side_yaw_rate">
+<!--			<function name="aero/force/Side_yaw_rate">
 				<description>Side force due to yaw rate</description>
 				<product>
 					<property>aero/qbar-psf</property>
@@ -906,15 +904,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>velocities/r-aero-rad_sec</property>
 					<value>0.5683</value>
 				</product>
-			</function>
+			</function> -->
 
 			<function name="aero/force/Side_rudder">
 				<description>Side force due to rudder</description>
 				<product>
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
-					<property>fcs/rudder-pos-rad</property>
-					<value>0.2413</value>
+					<property>fcs/rudder-pos-deg</property>
+					<value>0.00421</value>
 				</product>
 			</function>
 
@@ -929,7 +927,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>metrics/bw-ft</property>
-					<table>
+					<table name="aero/coefficient/CM_propwash">
 						<independentVar lookup="row">aero/alpha-deg</independentVar>
 						<independentVar lookup="column">fcs/flap-pos-deg</independentVar>
 						<tableData>
@@ -944,8 +942,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</function>  -->
 
 			
-
-			
 			<function name="aero/force/Pitch_alpha">
 				<description>Pitch_due_to_alpha</description>
 				<product>
@@ -954,7 +950,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>metrics/bw-ft</property>
 					<table name="aero/coefficient/CM_alpha">
 						<independentVar lookup="column">aero/Re</independentVar>
-						<independentVar lookup="row">fcs/elevator-pos-deg</independentVar>
+						<independentVar lookup="row">aero/alpha-deg</independentVar>
 						<tableData>
 							   5.029E+07	7.544E+07	1.006E+08	2.012E+08
 							-10	0.5524	0.5525	0.5530	0.5570
@@ -1004,7 +1000,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>metrics/cbarw-ft</property>
-					<table>
+					<table name="aero/coefficient/CM_elevator">
 						<independentVar lookup="row">fcs/elevator-pos-deg</independentVar>
 						<tableData>
 						-15	 0.6518
@@ -1027,7 +1023,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>metrics/cbarw-ft</property>
 					<property>aero/ci2vel</property>
 					<property>velocities/q-aero-rad_sec</property>
-					<table name="aero/coefficient/CM_Q">
+					<table name="aero/coefficient/CM_q">
 						<independentVar lookup="row">aero/Re</independentVar>
 						<tableData>
 							50290243	-44.3100
@@ -1052,7 +1048,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>metrics/cbarw-ft</property>
 					<property>aero/ci2vel</property>
 					<property>aero/alphadot-rad_sec</property>
-					<table>
+					<table name="aero/coeff/CM_alphadot">
 						<independentVar lookup="row">aero/alpha-deg</independentVar>
 						<tableData>
 							-10	-15.4000
@@ -1102,7 +1098,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>metrics/bw-ft</property>
 					<property>aero/beta-rad</property>
 					<property>fcs/gear-no-wow</property>
-					<table>
+					<table name="aero/coeff/Cl_beta">
 						<independentVar lookup="row">aero/alpha-deg</independentVar>
 						<independentVar lookup="column">aero/Re</independentVar>
 						<tableData>
@@ -1138,7 +1134,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>metrics/bw-ft</property>
 					<property>aero/bi2vel</property>
 					<property>velocities/p-aero-rad_sec</property>
-					<table>
+					<table name="aero/coeff/Cl_p">
 						<independentVar lookup="row">aero/alpha-deg</independentVar>
 						<independentVar lookup="column">aero/Re</independentVar>
 						<tableData>
@@ -1166,7 +1162,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</product>
 			</function>
 
-			<function name="aero/moment/Roll_yaw">
+			<function name="aero/moment/Roll_yaw_rate">
 				<description>Roll moment due to yaw rate</description>
 				<product>
 					<property>aero/qbar-psf</property>
@@ -1174,7 +1170,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>metrics/bw-ft</property>
 					<property>aero/bi2vel</property>
 					<property>velocities/r-aero-rad_sec</property>
-					<table>
+					<table name="aero/coeff/Cl_r">
 						<independentVar lookup="row">aero/alpha-deg</independentVar>
 						<tableData>
                             -10	-0.0782
@@ -1206,7 +1202,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>metrics/bw-ft</property>
-					<table>
+					<table name="aero/coeff/Cl_aileron">
 						<independentVar lookup="row">fcs/aileron-difference-deg</independentVar>
 						<tableData>
 						-34	  -0.0422
@@ -1229,8 +1225,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>metrics/bw-ft</property>
-					<property>fcs/rudder-pos-rad</property>
-					<value>0.0100</value>
+					<property>fcs/rudder-pos-deg</property>
+					<value>0.000175</value>
 				</product>
 			</function>
 
@@ -1257,7 +1253,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>metrics/bw-ft</property>
 					<property>aero/bi2vel</property>
 					<property>velocities/p-rad_sec</property>
-					<table>
+					<table name="aero/coeff/Cn_p">
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
                 -10	0.0695
@@ -1302,7 +1298,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>metrics/Sw-sqft</property>
 					<property>metrics/bw-ft</property>
 					<property>fcs/rudder-pos-deg</property>
-					<value>-0.0848</value>
+					<value>-0.002</value>
 				</product>
 			</function>
 
@@ -1312,7 +1308,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>metrics/bw-ft</property>
-					<table>
+					<table name="aero/coeff/Cr_aileron">
 						<independentVar lookup="row">fcs/aileron-difference-deg</independentVar>
 						<independentVar lookup="column">aero/alpha-deg</independentVar>
 						<tableData>

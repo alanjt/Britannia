@@ -122,8 +122,6 @@
 			</lights> -->
 		</model>
 
-
-
 		<multiplay>
 			<chat_display>1</chat_display>
 			<generic>
@@ -316,17 +314,22 @@
 			<engine n="3">
 				<rpm type="double">700</rpm>
 			</engine>
+			<spool-time type="float">25.0</spool-time>
 		</engines>
  
 	</sim>
+	
 	<nasal>
 		<Britannia>
 			<file>Nasal/liveries.nas</file>
 			<file>Nasal/light.nas</file>
 			<file>Nasal/Reset-in-air.nas</file>
+			<file>Nasal/light.nas</file>
+			<file>Nasal/engines.nas</file>			
 		</Britannia>
 		<dialogs>
 			<file>Nasal/dialogs.nas</file>
 		</dialogs>
 	</nasal>
+	
 </PropertyList>
