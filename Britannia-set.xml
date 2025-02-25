@@ -243,10 +243,10 @@
 		</view>
 
 		<flaps>
-			<setting>0.0</setting>
-			<setting>0.5</setting>
-			<setting>0.7</setting>
-			<setting>1.0</setting>
+			<setting>0.0    </setting>	<!--  0 deg -->
+			<setting>0.44444</setting>	<!-- 20 deg -->
+			<setting>0.77778</setting>	<!-- 35 deg -->
+			<setting>1.0    </setting>	<!-- 45 deg -->
 		</flaps>
     
 		<help>
@@ -279,7 +279,7 @@
 		
 		<controls>
 			<flight>
-				<elevator-trim>-0.15</elevator-trim>
+				<elevator-trim>0.0</elevator-trim>
 			</flight>
 			<engines>
 				<engine n="0">
@@ -303,16 +303,16 @@
 
 		<engines>
 			<engine n="0">
-				<rpm type="double">700</rpm>
+				<rpm type="double">40</rpm>
 			</engine>
 			<engine n="1">
-				<rpm type="double">700</rpm>
+				<rpm type="double">40</rpm>
 			</engine>
 			<engine n="2">
-				<rpm type="double">700</rpm>
+				<rpm type="double">40</rpm>
 			</engine>
 			<engine n="3">
-				<rpm type="double">700</rpm>
+				<rpm type="double">40</rpm>
 			</engine>
 			<spool-time type="float">25.0</spool-time>
 		</engines>
@@ -321,7 +321,7 @@
 	
 	<nasal>
 		<Britannia>
-			<file>Nasal/liveries.nas</file>
+	<!--		<file>Nasal/liveries.nas</file> -->
 			<file>Nasal/light.nas</file>
 			<file>Nasal/Reset-in-air.nas</file>
 			<file>Nasal/light.nas</file>

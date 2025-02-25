@@ -616,15 +616,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
          <property>systems/propulsion/thrust-coefficient</property>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
-          <table name="aero/coefficient/CD_propwash">
-            <independentVar lookup="row">aero/alpha-rad</independentVar>
+          <table name="aero/coefficient/CL_propwash">
+            <independentVar lookup="row">aero/alpha-deg</independentVar>
             <independentVar lookup="column">fcs/flap-pos-deg</independentVar>
             <tableData>
-                     0.0     60.0
-              -0.13  0.000   0.000
-               0.00  0.030   0.080
-               0.23  0.159   0.424
-               0.47  0.000   0.000
+                      0.0     60.0
+              -7.45   0.000   0.000
+               0.00   0.030   0.080
+               13.18  0.159   0.424
+               26.93  0.000   0.000
             </tableData>
           </table>
       </product>
