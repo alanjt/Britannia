@@ -722,7 +722,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>propeller4</object-name>
-		<property>/engines/engine[2]/n1</property>
+		<property>/engines/engine[3]/n1</property>
 		<factor>3</factor>
 		<center>
 			<x-m>-6.9571</x-m><y-m>9.6234</y-m><z-m>-0.6050</z-m>

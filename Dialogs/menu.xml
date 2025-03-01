@@ -12,15 +12,18 @@
     <label>Autostart</label>
     <binding>
      <command>property-toggle</command>
-     <property>controls/engines/start1</property>
+<!--     <property>controls/engines/start1</property> -->
+     <property>controls/engines/startall</property>
     </binding>
     <binding>
      <command>property-toggle</command>
-     <property>controls/engines/run1</property>
+<!--     <property>controls/engines/run1</property> -->
+     <property>controls/engines/runall</property>
     </binding>
     <binding>
      <command>property-toggle</command>
-     <property>controls/engines/abort1</property>
+<!--     <property>controls/engines/abort1</property> -->
+     <property>controls/engines/abortall</property>
     </binding>
     <mod-up>
      <binding>
