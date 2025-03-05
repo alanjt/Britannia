@@ -154,9 +154,6 @@
 				<float n="15" alias="/gear/gear[0]/rollspeed-ms"/>
 				<float n="16" alias="/gear/gear[1]/rollspeed-ms"/>
 				<float n="17" alias="/gear/gear[2]/rollspeed-ms"/>
-				<!-- For Bombable -->
-				<int type="int" n="10" alias="controls/armament/trigger">0</int>
-				<string n="9" type="string"/>
 			</generic>
 		</multiplay>
 		
