@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Bristol Britannia for Flightgear
+Copyright (C) 2020 Alan Teeder
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+########################################################################-->
+
+<flight_control name="FCS: Britannia">
+
+	<channel name="Thruster">
+		<summer name="systems/propulsion/thrust-coefficient-left">
+			<input>propulsion/engine[0]/thrust-coefficient</input>
+			<input>propulsion/engine[1]/thrust-coefficient</input>
+			<output>systems/propulsion/thrust-coefficient-left</output>
+		</summer>
+		<summer name="systems/propulsion/thrust-coefficient-right">
+			<input>propulsion/engine[2]/thrust-coefficient</input>
+			<input>propulsion/engine[3]/thrust-coefficient</input>
+			<output>systems/propulsion/thrust-coefficient-right</output>
+		</summer>
+		<summer name="systems/propulsion/thrust-coefficient-left-right">
+			<input>systems/propulsion/thrust-coefficient-left</input>
+			<input>-systems/propulsion/thrust-coefficient-right</input>
+			<output>systems/propulsion/thrust-coefficient-left-right</output>
+		</summer>
+		<summer name="systems/propulsion/thrust-coefficient">
+			<input>systems/propulsion/thrust-coefficient-left</input>
+			<input>systems/propulsion/thrust-coefficient-right</input>
+			<output>systems/propulsion/thrust-coefficient</output>
+		</summer>
+	</channel>
+		
+	<channel name="Pitch">
+		<!-- Each elevator has 4 equal sized trim tabs. The innermost tabs on either side are operated by the 
+			pilot´s pitch trim control.
+			The remaining 3 pairs of tabs are connected directly to the control column.
+			
+			From the few photographs and descriptions of the tab´s operation that I have ound, I assume that the tab is of the
+			simple type known as a Pure Flying Tab. See the Datcom reference below, page 6.3.4.3. -->
+			
+		<!-- Simulation limitations -->
+			
+		<!-- This initial simulation is a proof of concept and has limitations.
+
+			The port and stbd elevators are considered as one unit which is driven by a single control tab.
+			The individual units will be simulated at a later date.
+			
+			Hinge moments and resultant stick forces are not simulated as there is no way for them to be felt
+			by the user with a PC which unless it has a full-sized control column capable of providing the
+			necessary forces and range of movement. 
+			  
+			  In this instance, the complexity of these calculations is not justified.
+			For details of the calculations involved see section 6.3.4 of USAF Stability and Control DATCOM,
+			which is available at https://apps.dtic.mil/sti/citations/ADB072483
+			This is the full 3000+ page document, not the much simplified digital version.
+			Digital Datcom is based upon this document and can do many of the calculations required, but the 
+			description in its own manual is rather terse, so the original document is needed to explain 
+			the various inputs that are required.-->
+			
+		<aerosurface_scale name="fcs/elevator-cmd-deg">
+			<input>fcs/elevator-cmd-norm</input>		<!-- from Flightgear Joystick, Keypad or Mouse -->
+			<zero_centered>true</zero_centered>
+			<domain><min>-1</min><max>1</max></domain>
+			<range><min>-35.0</min><max>15.0</max></range>
+<!--			<output>fcs/elevator-cmd-deg</output>   -->
+		</aerosurface_scale>
+
+		<aerosurface_scale name="fcs/elevator-trim-cmd-deg">
+			<input>fcs/pitch-trim-cmd-norm</input>		<!-- from Flightgear Joystick or Keypad -->
+			<zero_centered>true</zero_centered>
+			<domain><min>-1</min><max>1</max></domain>
+			<range><min>-35.0</min><max>15.0</max></range>
+<!--			<output>fcs/elevator-trim-cmd-deg</output> -->
+		</aerosurface_scale>
+		
+		<summer name="fcs/elevator-cmd-sum">
+			<input>fcs/elevator-cmd-deg</input>
+			<input>fcs/elevator-trim-cmd-deg</input>
+	<!--    <input>fcs/afcs-elevator-cmd-deg</input>-->		<!-- from AFCS -->
+			<clipto><min>-35.0</min><max>15.0</max></clipto>
+	<!--    <output>fcs/elevator-cmd-sum</output> -->
+		</summer>
+		
+<!-- move tab in opposite direction to required elevator position -->		
+		<pure_gain name="fcs/elevator-tab-deg">
+			<input>-fcs/elevator-cmd-sum</input>
+			<gain>1.0</gain>
+	<!--   			<gain>-1.0</gain> -->  <!-- JSBsim bug ?? -1 recognised as 1 -->
+	<!--    <output>fcs/elevator-tab-deg</output> --><!-- used to animate the elevator control tabs -->
+		</pure_gain>
+
+			<!-- Note:
+			Sign convention ..
+			Property fcs/elevator-tab-deg is positive (downwards) which will
+			cause a positive elevator deflection (upwards).-->
+			
+		<!-- The tab becomes fully effective at 80 kts. 
+		
+			This corresponds to aero/qbar-psf of aprox 20.0. 
+			Below this speed the tabs will become progressivly less effective.
+			The elevators are affected by propeller wash, so this airspeed will reduce with engine power.-->	
+							
+		<scheduled_gain name="fcs/elevator-due-to-tab">
+			<input>fcs/elevator-tab-deg</input>
+			<gain>1.0</gain>
+			<table name="fcs/elevator-tab-effectivness">
+				<independentVar>aero/qbar-psf</independentVar>
+				<tableData>
+					0.0  0.0
+					20.0 -1.0
+				</tableData>  
+			</table>
+			<clipto><min>-35.0</min><max>15.0</max></clipto>
+<!--		<output>fcs/elevator-due-to-tab</output> -->
+		</scheduled_gain>
+
+		<!--The elevators are not perfectly balanced, so will fall downwards when
+			the tabs are not lifting them to the normal flying condition. -->			
+
+		<summer name="fcs/elevator-gravity-effect">
+			<input>-fcs/elevator-tab-effectivness</input>
+			<bias>-1.0</bias>
+<!--		<output>fcs/elevator-gravity-effect</output> -->
+		</summer>
+		
+		<pure_gain name="fcs/elevator-due-to-gravity">
+			<input>fcs/elevator-gravity-effect</input>
+			<gain>15.0</gain>
+<!--			<output>fcs/elevator-due-to-gravity</output> -->
+		</pure_gain>
+		
+		<summer name="fcs/elevator-pos-deg">
+			<input>fcs/elevator-due-to-gravity</input>
+			<input>fcs/elevator-due-to-tab</input>
+			<gain>1.0</gain>
+<!--		<output>fcs/elevator-pos-deg</output> -->
+		</summer>
+
+		<pure_gain name="fcs/elevator-pos-rad">
+			<input>fcs/elevator-pos-deg</input>
+			<gain>0.008726646</gain><!-- 1/57.3 -->
+<!--		<output>fcs/elevator-pos-rad</output> -->
+		</pure_gain>
+			
+		<pure_gain name="fcs/elevator-pos-norm">
+			<input>fcs/elevator-pos-deg</input>
+			<gain>0.02857</gain><!-- 1/35 -->
+<!--		<output>fcs/elevator-pos-norm</output> -->
+		</pure_gain>
+
+	</channel>
+
+	<channel name="Roll">
+		<summer name="fcs/aileron-cmd-sum">
+			<input>fcs/aileron-cmd-norm</input><!-- from Flightgear Joystick, Keypad or Mouse -->
+			<input>fcs/roll-trim-cmd-norm</input><!-- from Flightgear Joystick or Keypad -->
+			<clipto>
+				<min>-1</min>
+				<max>1</max>
+			</clipto>
+			<output>fcs/aileron-cmd-sum</output>
+		</summer>
+
+		<aerosurface_scale name="fcs/left-aileron-pos-deg">
+			<input>fcs/aileron-cmd-sum</input>
+			<range>
+				<min>-15.0</min>
+				<max>19.0</max>
+			</range>
+			<output>fcs/left-aileron-pos-deg</output>
+		</aerosurface_scale>
+
+		<aerosurface_scale name="right-aileron-pos-deg">
+			<!--				<input>fcs/afcs-aileron-cmd-deg</input> --><!-- from AFCS -->
+			<input>-fcs/aileron-cmd-sum</input>
+			<range>
+				<min>-15.0</min>
+				<max>19.0</max>
+			</range>
+			<output>fcs/right-aileron-pos-deg</output>
+		</aerosurface_scale>
+			
+		<summer name="fcs/aileron-difference-deg">
+			<input>-fcs/right-aileron-pos-deg</input>
+			<input>fcs/left-aileron-pos-deg</input>
+			<clipto>
+				<min>-34</min>
+				<max>34</max>
+			</clipto>
+			<output>fcs/aileron-difference-deg</output>
+		</summer>
+			
+	</channel>
+
+	<channel name="Yaw">
+		
+		<pure_gain name="fcs/rudder-cmd-deg">
+			<input>fcs/rudder-cmd-norm</input><!-- from Flightgear Joystick, Keypad or Mouse -->
+			<gain>18.0</gain>
+			<output>fcs/rudder-cmd-deg</output>
+		</pure_gain>
+
+		<pure_gain name="fcs/rudder-trim-cmd-deg">
+			<input>fcs/yaw-trim-cmd-norm</input><!-- from Flightgear Joystick, Keypad or Mouse -->
+			<gain>18.0</gain>
+			<output>fcs/rudder-trim-cmd-deg</output>
+		</pure_gain>
+			
+		<summer name="fcs/rudder-pos-deg">
+			<input>fcs/rudder-cmd-deg</input>
+			<input>fcs/rudder-trim-cmd-deg</input>
+			<!--			<input>fcs/afcs-rudder-cmd-deg</input>   --><!-- from AFCS -->
+			<!--			<input>fcs/afcs-yawdamper-deg</input>   --><!-- from AFCS -->
+			<clipto>
+				<min>-18</min>
+				<max>18</max>
+			</clipto>
+			<output>fcs/rudder-pos-deg</output>
+		</summer>
+			
+		<pure_gain name="fcs/rudder-pos-rad">
+			<input>fcs/rudder-pos-deg</input>
+			<gain>0.0174533</gain>
+			<output>fcs/rudder-pos-rad</output>
+		</pure_gain>
+
+		<aerosurface_scale name="fcs/rudder-pos-norm">
+			<input>fcs/rudder-pos-deg</input>
+			<domain>
+				<min>-18.0</min>
+				<max>18.0</max>
+			</domain>
+			<range>
+				<min>-1</min>
+				<max>1</max>
+			</range>
+			<output>fcs/rudder-pos-norm</output>
+		</aerosurface_scale>
+			
+	</channel>
+			
+	<!--			<summer name="fcs/rudder-command-sum">
+				<input>fcs/rudder-cmd-norm</input>       
+				<input>fcs/yaw-trim-cmd-norm</input>     
+				<clipto>
+					<min>-1</min>
+					<max>1</max>
+				</clipto>
+				<output>fcs/rudder-command-sum</output>
+			</summer>
+
+			<aerosurface_scale name="fcs/rudder-pos-rad">
+				<input>fcs/rudder-command-sum</input>
+				<range>
+					<min>-0.35</min>
+					<max>0.35</max>
+				</range>
+				<output>fcs/rudder-pos-rad</output>
+			</aerosurface_scale>
+
+			<aerosurface_scale name="fcs/rudder-pos-norm">
+				<input>fcs/rudder-pos-rad</input>
+				<domain>
+					<min>-0.35</min>
+					<max>0.35</max>
+				</domain>
+				<range>
+					<min>-1</min>
+					<max>1</max>
+				</range>
+				<output>fcs/rudder-pos-norm</output>
+			</aerosurface_scale>
+		</channel>  -->
+
+	<channel name="Landing Gear">
+		<kinematic name="Landing Gear Control">
+			<input>gear/gear-cmd-norm</input>
+			<traverse>
+				<setting>
+					<position>0</position>
+					<time>0</time>
+				</setting>
+				<setting>
+					<position>1</position>
+					<time>5</time>
+				</setting>
+			</traverse>
+			<output>gear/gear-pos-norm</output>
+		</kinematic>
+	</channel>
+
+	<channel name="Flaps">
+		<kinematic name="Flaps Control">
+			<input>fcs/flap-cmd-norm</input>
+			<traverse>
+				<setting>
+					<position>0</position>
+					<time>0</time>
+				</setting>
+				<setting>
+					<position>15</position>
+					<time>4</time>
+				</setting>
+				<setting>
+					<position>30</position>
+					<time>3</time>
+				</setting>
+			</traverse>
+			<output>fcs/flap-pos-deg</output>
+		</kinematic>
+
+		<aerosurface_scale name="fcs/flap-pos-norm">
+			<input>fcs/flap-pos-deg</input>
+			<domain>
+				<min>0</min>
+				<max>30</max>
+			</domain>
+			<range>
+				<min>0</min>
+				<max>1</max>
+			</range>
+			<output>fcs/flap-pos-norm</output>
+		</aerosurface_scale>
+	</channel>
+
+</flight_control>

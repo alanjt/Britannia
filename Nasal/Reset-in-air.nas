@@ -112,12 +112,32 @@ var Reset = func{
                 break;
         }
 	}
+# set start a piston engine .
+		if (getprop("sim/presets/engines_running")) {
+		print("signal reinit-Start engine");
+			setprop("controls/engines/engine/magnetos", 3);
+			controls.startEngine(1);
+			} 
+		else {
+		print("signal reinit-Stop engine");
+		setprop("controls/engines/engine/magnetos", 0);
+		controls.startEngine(0);
+		} 
 } # end function
 ##################################################################################
 var ResetFDM = func{
 	print ("SIGNAL /sim/signals/fdm-initialized");
-	##    Initall();
-	} ## end func
+	if (getprop("sim/presets/engines_running")) {
+		print("signal fdm-initialized-Start engine");
+		setprop("controls/engines/engine/magnetos", 3);
+		controls.startEngine(1);
+		} 
+	else {
+		print("signal fdm-initialized-Stop engine");
+		setprop("controls/engines/engine/magnetos", 0);
+		controls.startEngine(0);
+		} 
+	};
 
 var ResetReinit = func{
 	print ("SIGNAL /sim/signals/reinit");

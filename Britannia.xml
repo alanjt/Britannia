@@ -1,0 +1,399 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
+
+<fdm_config name="Britannia" version="2.0" release="ALPHA"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
+   
+	<!--####################################################################
+Bristol Britannia for Flightgear
+Copyright (C) 2025 Alan Teeder
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+########################################################################-->
+
+	<fileheader>
+		<author>Alan Teeder</author>
+		<filecreationdate>10 Jan 2025</filecreationdate>
+		<version>$Revision: 1.0 $</version>
+		<description>Bristol Britannia.</description>
+	</fileheader>
+
+	<!--
+  File:     Britannia.xml
+  Input parameters:
+    Output directory                   : C:\fg\AircraftDev\Britannia\Aeromatic
+    Create a subdirectory?             : yes
+    Overwrite?                         : yes
+    Aircraft name                      : Britannia
+    Use dedicated system files?        : no
+    Select a system of measurement     : no
+    Type of aircraft                   : 4
+    Stall speed VS1 (clean, no flaps)  : 130.00
+    Maximum takeoff weight             : 175000.00
+    Empty weight                       : 82537.00
+    Inertia Ixx                        : 1328560.75
+    Inertia Iyy                        : 1211885.75
+    Inertia Izz                        : 2514162.00
+    Length                             : 124.25
+    Select a wing shape                : 0
+    Wing span                          : 142.29
+    Wing area                          : 2075.00
+    Wing aspect ratio                  : 9.76
+    Wing taper ratio                   : 3.43
+    Wing root chord                    : 55.12
+    Wing incidence                     : 3.00
+    Wing dihedral                      : 3.00
+    Wing sweep (quarter chord)         : 0.00
+    Htail area                         : 588.00
+    Htail arm                          : 50.00
+    Vtail area                         : 356.00
+    Vtail arm                          : 50.00
+    Propulsion                         : yes
+    Engine name                        : Proteus_765
+    Number of engines                  : 4
+    Engine layout                      : 3
+    Engine type                        : 1
+    Engine power                       : 4450.00
+    Maximum engine rpm                 : 1000.00
+    Overall pressure ratio             : 0.00
+    Turbine inlet temperature          : 0.00
+    Thruster name                      : DeHavillandPD202
+    Propeller diameter                 : 16.00ft
+    Is the propeller fixed pitch?      : no
+    Control system                     : 0
+    Landing Gear                       : yes
+    Is landing gear retractable?       : yes
+    Nose or tail wheel type            : 0
+    Is this a taildragger?             : no
+    Flaps                              : yes
+
+  Specifications:
+    name:          Britannia
+    type:          Multi-engine Propeller Airliner, Propeller Transport
+    stall speed:   130.00 kt
+    max weight:    175000.00 lbs
+    Fuselage: 
+     length:        124.25 ft
+     diameter:      12.00 ft
+     finess ratio:  10.35
+    wing: 
+     span:         142.29 ft
+     area:         2075.00 ft2
+     mean chord:   55.12 ft
+     aspect ratio: 9.76:1
+     taper ratio:  3.43:1
+     incidence:    3.00 degrees
+     dihedral:     3.00 degrees
+     sweep:        0.00 degrees
+     t/c:          69.38 %
+
+    no. engines:   4
+    engine type:   Turboprop Engine
+    engine layout: wings
+
+    control type:   Conventional Controls
+
+    gear type:     tricycle
+    steering type: steering
+    retractable?:  yes
+
+  Outputs:
+    wing loading:       84.34 lbs/sq-ft
+     - thickness ratio: 69.38%
+    payload:            48013.00 lbs
+    CL-alpha:           5.91 per radian
+    CL-0:               0.28
+    CL-max:             1.47
+    CD-0:               0.83
+    K:                  0.04
+    Mcrit:              0.70
+
+    min. turn radius    826.06 ft
+    max. turn rate:     0.29 deg/s
+-->
+
+	<metrics>
+		<wingarea unit="FT2">2075.00</wingarea>
+		<wingspan unit="FT">142.29</wingspan>
+		<wing_incidence unit="DEG">3.00</wing_incidence>
+		<chord unit="FT">55.12</chord>
+		<htailarea unit="FT2">588.00</htailarea>
+		<htailarm unit="FT">50.00</htailarm>
+		<vtailarea unit="FT2">356.00</vtailarea>
+		<vtailarm unit="FT">50.00</vtailarm>
+		<location name="AERORP" unit="FT">
+			<x>-8.2</x>
+			<y>0.00</y>
+			<z>0.00</z>
+		</location>
+		<location name="EYEPOINT" unit="FT">
+			<x>-13.9</x>
+			<y>-0.528</y>
+			<z>1.5</z>
+			<!--     <x-m> -14.900 </x-m>
+      <y-m>  -0.528 </y-m>
+	  <z-m>  0.5 </z-m>	 -->
+		</location>
+		<location name="VRP" unit="FT">
+			<x>0.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</location>
+	</metrics>
+
+	<mass_balance>
+		<ixx unit="SLUG*FT2">1328560.75</ixx>
+		<iyy unit="SLUG*FT2">1211885.75</iyy>
+		<izz unit="SLUG*FT2">2514162.00</izz>
+		<emptywt unit="LBS">82537.00</emptywt>
+		<location name="CG" unit="FT">
+			<x>-9.438</x>
+			<y>0.00</y>
+			<z>0.0</z>
+		</location>
+		
+<!--			48013.00 lbs total payload should bring model up to entered max weight -->
+<!--		<pointmass name="Payload">
+			<weight unit="LBS">24006.50</weight>
+			<location name="CARGOLOAD" unit="FT">
+				<x>-9.438</x>
+				<y>0.00</y>
+				<z>0.0</z>
+			</location>
+		</pointmass> -->
+	</mass_balance>
+
+	<propulsion>
+		<engine file="Proteus_765">
+			<feed>0</feed>
+
+			<thruster file="DeHavillandPD202">
+				<sense>1</sense>
+				<location unit="FT">
+					<x>-22.97</x>
+					<y>-31.57</y>
+					<z>-1.99</z>
+				</location>
+				<orient unit="DEG">
+					<pitch>0.00</pitch>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
+				</orient>
+			</thruster>
+		</engine>
+
+		<engine file="Proteus_765">
+			<feed>1</feed>
+
+			<thruster file="DeHavillandPD202">
+				<sense>1</sense>
+				<location unit="FT">
+					<x>-25.13</x>
+					<y>-15.72</y>
+					<z>-2.43</z>
+				</location>
+				<orient unit="DEG">
+					<pitch>0.00</pitch>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
+				</orient>
+			</thruster>
+		</engine>
+
+		<engine file="Proteus_765">
+			<feed>2</feed>
+
+			<thruster file="DeHavillandPD202">
+				<sense>1</sense>
+				<location unit="FT">
+					<x>-25.13</x>
+					<y>15.72</y>
+					<z>-2.43</z>
+				</location>
+				<orient unit="DEG">
+					<pitch>0.00</pitch>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
+				</orient>
+			</thruster>
+		</engine>
+
+		<engine file="Proteus_765">
+			<feed>3</feed>
+
+			<thruster file="DeHavillandPD202">
+				<sense>1</sense>
+				<location unit="FT">
+					<x>-22.97</x>
+					<y>31.57</y>
+					<z>-1.99</z>
+				</location>
+				<orient unit="DEG">
+					<pitch>0.00</pitch>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
+				</orient>
+			</thruster>
+		</engine>
+
+		<tank type="FUEL" number="0">
+			<location unit="FT">
+				<!--				<x>-7.0</x> -->
+				<x>-9.0</x>
+				<y>-5.3</y>
+				<z>-0.7</z>
+			</location>
+			<capacity unit="LBS">8890.00</capacity>
+			<contents unit="LBS">4445.00</contents>
+		</tank>
+		<tank type="FUEL" number="1">
+			<location unit="FT">
+				<!--				<x>-7.7</x> -->
+				<x>-9.7</x>
+				<y>-3.9</y>
+				<z>-0.6</z>
+			</location>
+			<capacity unit="LBS">8890.00</capacity>
+			<contents unit="LBS">4445.00</contents>
+		</tank>
+		<tank type="FUEL" number="2">
+			<location unit="FT">
+				<!--				<x>-7.7</x> -->
+				<x>-9.7</x>
+				<y>3.9</y>
+				<z>-0.6</z>
+			</location>
+			<capacity unit="LBS">8890.00</capacity>
+			<contents unit="LBS">4445.00</contents>
+		</tank>
+		<tank type="FUEL" number="3">
+			<location unit="FT">
+				<!--				<x>-7.0</x> -->
+				<x>-9.0</x>
+				<y>5.3</y>
+				<z>-0.7</z>
+			</location>
+			<capacity unit="LBS">8890.00</capacity>
+			<contents unit="LBS">4445.00</contents>
+		</tank>
+		<tank type="FUEL" number="4">
+			<location unit="FT">
+				<!--				<x>-7.0</x> -->
+				<x>-9.0</x>
+				<y>0.00</y>
+				<z>-0.8</z>
+			</location>
+			<capacity unit="LBS">8890.00</capacity>
+			<contents unit="LBS">4445.00</contents>
+		</tank>
+	</propulsion>
+
+	<ground_reactions>
+
+		<contact type="BOGEY" name="NOSE">
+			<location unit="FT">
+				<x>-47.917</x>
+				<y>0.00</y>
+				<z>-11.6961</z>
+			</location>
+			<static_friction>0.80</static_friction>
+			<dynamic_friction>0.50</dynamic_friction>
+			<rolling_friction>0.02</rolling_friction>
+			<spring_coeff unit="LBS/FT">52500.00</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">26250.00</damping_coeff>
+			<max_steer unit="DEG">5.00</max_steer>
+			<brake_group>NONE</brake_group>
+			<retractable>1</retractable>
+		</contact>
+
+		<contact type="BOGEY" name="LEFT_MAIN">
+			<location unit="FT">
+				<x>-5.800</x>
+				<y>-15.708</y>
+				<z>-11.696</z>
+			</location>
+			<static_friction>0.80</static_friction>
+			<dynamic_friction>0.50</dynamic_friction>
+			<rolling_friction>0.02</rolling_friction>
+			<spring_coeff unit="LBS/FT">175000.00</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">87500.00</damping_coeff>
+			<max_steer unit="DEG">0</max_steer>
+			<brake_group>LEFT</brake_group>
+			<retractable>1</retractable>
+		</contact>
+
+		<contact type="BOGEY" name="RIGHT_MAIN">
+			<location unit="FT">
+				<x>-5.800</x>
+				<y>15.708</y>
+				<z>-11.696</z>
+			</location>
+			<static_friction>0.80</static_friction>
+			<dynamic_friction>0.50</dynamic_friction>
+			<rolling_friction>0.02</rolling_friction>
+			<spring_coeff unit="LBS/FT">175000.00</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">87500.00</damping_coeff>
+			<max_steer unit="DEG">0</max_steer>
+			<brake_group>RIGHT</brake_group>
+			<retractable>1</retractable>
+		</contact>
+
+		<contact type="STRUCTURE" name="LEFT_WING">
+			<location unit="FT">
+			<x-m>-0.250</x-m>
+			<y-m>-6.558</y-m>
+			<z-m>-0.029</z-m>
+			</location>
+			<static_friction>1</static_friction>
+			<dynamic_friction>1</dynamic_friction>
+			<spring_coeff unit="LBS/FT">175000.00</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">87500.00</damping_coeff>
+		</contact>
+
+		<contact type="STRUCTURE" name="RIGHT_WING">
+			<location unit="FT">
+			<x-m>-0.250</x-m>
+			<y-m> 6.558</y-m>
+			<z-m>-0.029</z-m>
+			</location>
+			<static_friction>1</static_friction>
+			<dynamic_friction>1</dynamic_friction>
+			<spring_coeff unit="LBS/FT">175000.00</spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC">87500.00</damping_coeff>
+		</contact>
+
+	</ground_reactions>
+
+	<!-- **********************************************************************
+        FLIGHT CONTROL
+     **********************************************************************
+-->
+	<flight_control file="Britannia_FCS.xml"/>
+	
+
+	<!-- **********************************************************************
+        AERODYNAMICS
+     **********************************************************************
+-->
+	<!--	<aerodynamics file="Britannia_aeroOpenVSP.xml"/> -->
+	<aerodynamics file="Britannia_aeroDatcom.xml"/>
+	<!--<aerodynamics file="Britannia_aeromatic.xml"/> -->
+
+	<external_reactions>
+	</external_reactions>
+
+
+</fdm_config>

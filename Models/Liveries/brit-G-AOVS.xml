@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
-<PropertyList include="brit-main.xml">
 
-  <texture-path>Textures/G-AOVS</texture-path>
+<PropertyList>
+
+  <sim>
+   <model>
+    <livery>
+     <name type="string">G-AOVH</name>
+     <texture>Liveries/G-AOVH.png</texture>
+    </livery>
+   </model>
+  </sim>
   
 </PropertyList>

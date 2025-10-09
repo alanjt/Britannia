@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
-<PropertyList include="brit-main.xml">
 
-  <texture-path>Textures/G-ANCD</texture-path>
+<PropertyList>
+
+  <sim>
+   <model>
+    <livery>
+     <name type="string">G-ANCD</name>
+     <texture>Liveries/G-ANCD.png</texture>
+    </livery>
+   </model>
+  </sim>
   
 </PropertyList>

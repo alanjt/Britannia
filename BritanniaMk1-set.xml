@@ -2,12 +2,12 @@
 <PropertyList>
 	<sim>
 
-		<description>Bristol-Britannia</description>
+		<description>Bristol-BritanniaMk1</description>
 		<author>Alan Teeder</author>
 		<aircraft-version>0.1</aircraft-version>
 		<minimum-fg-version>2017.3.0</minimum-fg-version>
 		<flight-model>jsb</flight-model>
-		<aero>Britannia</aero>
+		<aero>Britannia_Mk1_Datcom</aero>
 		<status>Alpha</status>
 
 		<rating>
@@ -25,10 +25,10 @@
 			<tag>four-engine</tag>
 			<tag>propeller</tag>
 			<tag>4-engines</tag>
-			<tag>turboprop</tag>
+			<tag>piston</tag>
 			<tag>variable-pitch</tag>
 			<tag>transport</tag>
-			<tag>1960s</tag>
+			<tag>1950s</tag>
 			<tag>ifr</tag>
 		</tags>
 		
@@ -247,7 +247,7 @@
 			</gear>
 		</controls>
 
-		<engines>
+<!--		<engines>
 			<engine n="0">
 				<rpm type="double">40</rpm>
 			</engine>
@@ -261,7 +261,7 @@
 				<rpm type="double">40</rpm>
 			</engine>
 			<spool-time type="float">25.0</spool-time>
-		</engines>
+		</engines> -->
  
 	</sim>
 	

@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
-<PropertyList include="brit-main.xml">
 
-  <texture-path>Textures/EI-BBH</texture-path>
+<PropertyList>
+
+  <sim>
+   <model>
+    <livery>
+     <name type="string">EI-BBH</name>
+     <texture>Liveries/EI-BBH.png</texture>
+    </livery>
+   </model>
+  </sim>
   
 </PropertyList>

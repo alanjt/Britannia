@@ -4,7 +4,7 @@
 
 	<path>Britannia.ac</path>
 
-	<nasal>
+<!--	<nasal>
 		<load>
       var livery_update = aircraft.livery_update.new("Aircraft/Britannia/Models/Liveries", 10);
 
@@ -25,7 +25,7 @@
       crew_door.unalias();
       passenger_door.unalias();
 		</unload>
-	</nasal>
+	</nasal> -->
 
 	<animation>
 		<!-- Opaque -->
@@ -827,11 +827,36 @@
 		<object-name>ElevatorPort</object-name><object-name>ElevatorStbd</object-name>
 		<object-name>ElevatorTabPort</object-name><object-name>ElevatorTabStbd</object-name>
 		<object-name>TrimTabPort</object-name><object-name>TrimTabStbd</object-name>
-		<property>surface-positions/elevator-pos-norm</property>
-		<factor>35</factor>
+		<property>/fdm/jsbsim/fcs/elevator-pos-deg</property>
+		<factor>1</factor>
 		<axis>
 			<x1-m>16.269</x1-m><y1-m>6.658</y1-m><z1-m>-0.4442</z1-m>
 			<x2-m>16.269</x2-m><y2-m>-6.658</y2-m><z2-m>-0.4442</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ElevatorTabPort</object-name>
+		<!--<property>surface-positions/elevator-pos-norm</property> -->
+		<property>/fdm/jsbsim/fcs/elevator-tab-deg</property>
+		<!--<factor>35</factor> -->
+		<factor>1</factor>
+		<axis>
+			<x1-m>16.827</x1-m><y1-m>-7.658</y1-m><z1-m>-0.4442</z1-m>
+			<x2-m>17.327</x2-m>-0.87<y2-m></y2-m><z2-m>-0.4442</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ElevatorTabStbd</object-name>
+		<!--<property>surface-positions/elevator-pos-norm</property> -->
+		<property>/fdm/jsbsim/fcs/elevator-tab-deg</property>
+		<!--<factor>35</factor> -->
+		<factor>1</factor>
+		<axis>
+			<x1-m>17.327</x1-m><y1-m>0.87</y1-m><z1-m>-0.4442</z1-m>
+			<x2-m>16.827</x2-m><y2-m>7.658</y2-m><z2-m>-0.4442</z2-m>
 		</axis>
 	</animation>
 
@@ -1533,36 +1558,48 @@
 	<model>
 		<path>Aircraft/Britannia/Models/lights/RedLight.xml</path>
 		<offsets>
-			<x-m>-2.45026</x-m>
+	<!--   <x-m>-2.45026</x-m>
 			<y-m>-18.00150</y-m>
-			<z-m>-1.65168</z-m>
+			<z-m>-1.65168</z-m> -->
+			<x-m>-0.821</x-m>
+			<y-m>-21.517</y-m>
+			<z-m>-0.096</z-m>
 		</offsets>
 	</model>
   
 	<model>
 		<path>Aircraft/Britannia/Models/lights/StrobeLight.xml</path>
 		<offsets>
-			<x-m>-2.35026</x-m>
+	<!--   <x-m>-2.35026</x-m>
 			<y-m>-18.00150</y-m>
-			<z-m>-1.65168</z-m>
+			<z-m>-1.65168</z-m> -->
+			<x-m>-0.821</x-m>
+			<y-m>-21.517</y-m>
+			<z-m>-0.096</z-m>
 		</offsets>
 	</model>
   
 	<model>
 		<path>Aircraft/Britannia/Models/lights/GreenLight.xml</path>
 		<offsets>
-			<x-m>-2.45026</x-m>
+	<!--   <x-m>-2.45026</x-m>
 			<y-m>18.00150</y-m>
-			<z-m>-1.65168</z-m>
+			<z-m>-1.65168</z-m> -->
+			<x-m>-0.821</x-m>
+			<y-m>21.517</y-m>
+			<z-m>-0.096</z-m>
 		</offsets>
 	</model>
   
 	<model>
 		<path>Aircraft/Britannia/Models/lights/StrobeLight.xml</path>
 		<offsets>
-			<x-m>-2.35026</x-m>
+	<!--   	<x-m>-2.35026</x-m>
 			<y-m>18.00150</y-m>
-			<z-m>-1.65168</z-m>
+			<z-m>-1.65168</z-m>  -->
+			<x-m>-0.821</x-m>
+			<y-m>21.517</y-m>
+			<z-m>-0.096</z-m>
 		</offsets>
 	</model>
   

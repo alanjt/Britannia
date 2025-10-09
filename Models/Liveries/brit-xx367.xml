@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
-<PropertyList include="brit-main.xml">
 
-  <texture-path>Textures/xx367</texture-path>
+<PropertyList>
+
+  <sim>
+   <model>
+    <livery>
+     <name type="string">XX367</name>
+     <texture>Liveries/XX367.png</texture>
+    </livery>
+   </model>
+  </sim>
   
 </PropertyList>

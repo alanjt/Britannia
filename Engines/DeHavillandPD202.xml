@@ -19,12 +19,14 @@
   static thrust (lbs): 356417.2
     max. thrust (lbs): 7773.9
 -->
+<!--DeHavillandPD202/4N6/2 Propeller -->
 
-<propeller version="1.01" name="prop">
-  <ixx> 60.0 </ixx>
+<propeller version="1.01" name="DeHavillandPD202">
+  <!--<ixx> 60.0 </ixx> -->
+  <ixx> 215.4 </ixx>      <!-- 215.4 slug^ft = 6930 lb.ft^sq -->
   <diameter unit="FT"> 16.00 </diameter>
   <numblades> 4 </numblades>
-  <gearratio> 1.0 </gearratio>
+  <gearratio> 1.0 </gearratio> <!-- actual ratio is 11.6 N1 rpm to prop rpm, but FG uses N1 %RPM --> 
   <minpitch> 12 </minpitch>
   <maxpitch> 45 </maxpitch>
   <minrpm> 996.8 </minrpm>

@@ -348,7 +348,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					setprop("sim/presets/flaps",getprop("sim/presets/flaps_deg")/45.0);
+			setprop("sim/presets/flaps",getprop("sim/presets/flaps_deg")/45.0);
 				</script>
 			</binding>			
 		</combo>
@@ -474,18 +474,14 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					ac = getprop("sim/aircraft");
-					if (ac == "ufo") { return }
-
-					var eng = props.globals.getNode("controls/engines");
-					if (eng != nil) {
-					foreach (c; eng.getChildren("engine")) {
-					c.getNode("magnetos", 1).setIntValue(3);
-					c.getNode("throttle", 1).setDoubleValue(0.5);
-					}
-					}
+					setprop("/fdm/jsbsim/cutoff_cmd",0);
+					setprop("/fdm/jsbsim/set-running",1);
+					setprop("/fdm/jsbsim/engine[0]/set-running",1);
+					setprop("/fdm/jsbsim/engine[1]/set-running",1);
+					setprop("/fdm/jsbsim/engine[2]/set-running",1);
+					setprop("/fdm/jsbsim/engine[3]/set-running",1);
 				</script>
-			</binding>
+			</binding> -->
 			<binding>
 				<command>dialog-close</command>
 			</binding>
