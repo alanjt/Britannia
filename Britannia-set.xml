@@ -220,7 +220,7 @@
 				<desc>Open/Close cargo door</desc>
 			</key>
 		</help>
-		<menubar include="dialogs/menu.xml"/> 
+		<menubar include="Dialogs/menu.xml"/> 
 		<menubar>
 			<default>
 				<menu n="10">
