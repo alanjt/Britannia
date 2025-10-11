@@ -75,7 +75,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<zero_centered>true</zero_centered>
 			<domain><min>-1</min><max>1</max></domain>
 			<range><min>-35.0</min><max>15.0</max></range>
-<!--			<output>fcs/elevator-cmd-deg</output>   -->
 		</aerosurface_scale>
 
 		<aerosurface_scale name="fcs/elevator-trim-cmd-deg">
@@ -83,7 +82,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<zero_centered>true</zero_centered>
 			<domain><min>-1</min><max>1</max></domain>
 			<range><min>-35.0</min><max>15.0</max></range>
-<!--			<output>fcs/elevator-trim-cmd-deg</output> -->
 		</aerosurface_scale>
 		
 		<summer name="fcs/elevator-cmd-sum">
@@ -91,7 +89,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<input>fcs/elevator-trim-cmd-deg</input>
 	<!--    <input>fcs/afcs-elevator-cmd-deg</input>-->		<!-- from AFCS -->
 			<clipto><min>-35.0</min><max>15.0</max></clipto>
-	<!--    <output>fcs/elevator-cmd-sum</output> -->
 		</summer>
 		
 <!-- move tab in opposite direction to required elevator position -->		
@@ -99,7 +96,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<input>-fcs/elevator-cmd-sum</input>
 			<gain>1.0</gain>
 	<!--   			<gain>-1.0</gain> -->  <!-- JSBsim bug ?? -1 recognised as 1 -->
-	<!--    <output>fcs/elevator-tab-deg</output> --><!-- used to animate the elevator control tabs -->
 		</pure_gain>
 
 			<!-- Note:
@@ -119,46 +115,40 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<table name="fcs/elevator-tab-effectivness">
 				<independentVar>aero/qbar-psf</independentVar>
 				<tableData>
-					0.0  0.0
+					0.0  0.0 
 					20.0 -1.0
 				</tableData>  
 			</table>
 			<clipto><min>-35.0</min><max>15.0</max></clipto>
-<!--		<output>fcs/elevator-due-to-tab</output> -->
 		</scheduled_gain>
 
 		<!--The elevators are not perfectly balanced, so will fall downwards when
 			the tabs are not lifting them to the normal flying condition. -->			
 
 		<summer name="fcs/elevator-gravity-effect">
-			<input>-fcs/elevator-tab-effectivness</input>
-			<bias>-1.0</bias>
-<!--		<output>fcs/elevator-gravity-effect</output> -->
+			<input>fcs/elevator-tab-effectivness</input>
+			<bias>1.0</bias>
 		</summer>
 		
 		<pure_gain name="fcs/elevator-due-to-gravity">
 			<input>fcs/elevator-gravity-effect</input>
 			<gain>15.0</gain>
-<!--			<output>fcs/elevator-due-to-gravity</output> -->
 		</pure_gain>
 		
 		<summer name="fcs/elevator-pos-deg">
-			<input>fcs/elevator-due-to-gravity</input>
+			<input>fcs/elevator-due-to-gravity</input>  
 			<input>fcs/elevator-due-to-tab</input>
 			<gain>1.0</gain>
-<!--		<output>fcs/elevator-pos-deg</output> -->
 		</summer>
 
 		<pure_gain name="fcs/elevator-pos-rad">
 			<input>fcs/elevator-pos-deg</input>
 			<gain>0.008726646</gain><!-- 1/57.3 -->
-<!--		<output>fcs/elevator-pos-rad</output> -->
 		</pure_gain>
 			
 		<pure_gain name="fcs/elevator-pos-norm">
 			<input>fcs/elevator-pos-deg</input>
 			<gain>0.02857</gain><!-- 1/35 -->
-<!--		<output>fcs/elevator-pos-norm</output> -->
 		</pure_gain>
 
 	</channel>
