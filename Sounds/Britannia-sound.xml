@@ -236,7 +236,7 @@
       <name>flaps</name>
       <mode>in-transit</mode>
       <path>Aircraft/Britannia/Sounds/flaps.wav</path>
-      <property>/surface-positions/flap-pos-norm</property>
+      <property>fdm/jsbsim/fcs/flap-pos-norm</property>
       <volume>
         <factor>0.2</factor>
       </volume>

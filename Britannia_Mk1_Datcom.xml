@@ -461,17 +461,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<output>fcs/elevator-pos-deg</output>
 			</summer>
 			
-			<pure_gain name="elevator radians">
+	<!--		<pure_gain name="elevator radians">
 				<input>fcs/elevator-pos-deg</input>
-				<gain>0.008726646</gain><!-- 1/57.3 -->
+				<gain>0.008726646</gain>
 				<output>fcs/elevator-pos-rad</output>
 			</pure_gain>
 			
 			<pure_gain name="elevator norm">
 				<input>fcs/elevator-pos-deg</input>
-				<gain>0.02857</gain><!-- 1/35 -->
+				<gain>0.02857</gain>
 				<output>fcs/elevator-pos-norm</output>
-			</pure_gain>
+			</pure_gain>  -->
 
 		</channel>
 

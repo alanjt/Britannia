@@ -60,7 +60,7 @@
   <animation>
     <type>rotate</type>
     <object-name>tete</object-name>
-    <property>surface-positions/left-aileron-pos-norm</property>
+    <property>fdm/jsbsim/fcs/left-aileron-pos-norm</property>
     <factor> -10.0</factor>
     <center>
       <x-m>  0.248 </x-m>

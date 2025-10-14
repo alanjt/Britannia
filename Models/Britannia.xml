@@ -810,13 +810,23 @@
 	<!-- Rudder animation -->
 	<animation>
 		<type>rotate</type>
+		<object-name>RudderTab</object-name>
+		<property>fdm/jsbsim/fcs/rudder-tab-deg</property>
+		<factor>1.0</factor>
+		<axis>
+			<x1-m>18.034</x1-m><y1-m>0.000</y1-m><z1-m>1.320</z1-m>
+			<x2-m>16.941</x2-m><y2-m>0.000</y2-m><z2-m>6.871</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
 		<object-name>Rudder</object-name>
 		<object-name>RudderTab</object-name>
-		<property>surface-positions/rudder-pos-norm</property>
-		<factor>15</factor>
+		<property>fdm/jsbsim/fcs/rudder-pos-deg</property>
+		<factor>1.0</factor>
 		<axis>
-			<x1-m>15.437</x1-m><y1-m>0.000</y1-m><z1-m>1.688</z1-m>
-			<x2-m>15.918</x2-m><y2-m>0.000</y2-m><z2-m>7.014</z2-m>
+			<x1-m>15.673</x1-m><y1-m>0.000</y1-m><z1-m>1.328</z1-m>
+			<x2-m>16.119</x2-m><y2-m>0.000</y2-m><z2-m>6.857</z2-m>
 		</axis>
 	</animation>
 
@@ -827,7 +837,7 @@
 		<object-name>ElevatorPort</object-name><object-name>ElevatorStbd</object-name>
 		<object-name>ElevatorTabPort</object-name><object-name>ElevatorTabStbd</object-name>
 		<object-name>TrimTabPort</object-name><object-name>TrimTabStbd</object-name>
-		<property>/fdm/jsbsim/fcs/elevator-pos-deg</property>
+		<property>fdm/jsbsim/fcs/elevator-pos-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>16.269</x1-m><y1-m>-6.658</y1-m><z1-m>-0.4442</z1-m>
@@ -838,8 +848,8 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElevatorTabPort</object-name>
-		<!--<property>surface-positions/elevator-pos-norm</property> -->
-		<property>/fdm/jsbsim/fcs/elevator-tab-deg</property>
+		<!--<property>fdm/jsbsim/fcs/elevator-pos-norm</property> -->
+		<property>fdm/jsbsim/fcs/elevator-tab-deg</property>
 		<!--<factor>35</factor> -->
 		<factor>1</factor>
 		<axis>
@@ -850,8 +860,8 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElevatorTabStbd</object-name>
-		<!--<property>surface-positions/elevator-pos-norm</property> -->
-		<property>/fdm/jsbsim/fcs/elevator-tab-deg</property>
+		<!--<property>fdm/jsbsim/fcs/elevator-pos-norm</property> -->
+		<property>fdm/jsbsim/fcs/elevator-tab-deg</property>
 		<!--<factor>35</factor> -->
 		<factor>1</factor>
 		<axis>
@@ -889,7 +899,7 @@
  <animation>
     <type>rotate</type>
     <object-name>AileronTabPort</object-name>
-    <property>surface-positions/right-aileron-pos-deg</property>
+    <property>fdm/jsbsim/fcs/right-aileron-pos-deg</property>
     <factor> 1 </factor>
     <axis>
       <x1-m> -1.148 </x1-m> <y1-m> 11.696 </y1-m> <z1-m> -2.227 </z1-m>
@@ -900,7 +910,7 @@
   <animation>
     <type>rotate</type>
     <object-name>AileronTabStbd</object-name>
-    <property>surface-positions/left-aileron-pos-deg</property>
+    <property>fdm/jsbsim/fcs/left-aileron-pos-deg</property>
     <factor> 1 </factor>
     <axis>
       <x1-m>  0.273 </x1-m> <y1-m>-14.357 </y1-m> <z1-m>  -0.502 </z1-m>
@@ -914,7 +924,7 @@
     <type>translate</type>
     <object-name>flapsG1</object-name>
     <object-name>flapsD1</object-name>
-    <property>surface-positions/flaps-pos-norm</property>
+    <property>fdm/jsbsim/fcs/flaps-pos-norm</property>
     <interpolation>
       <entry><ind> 0.0 </ind><dep> 0.00 </dep></entry>
       <entry><ind> 0.5 </ind><dep> 1.67 </dep></entry>
@@ -929,7 +939,7 @@
     <type>translate</type>
     <object-name>flapsG1</object-name>
     <object-name>flapsD1</object-name>
-    <property>surface-positions/flaps-pos-norm</property>
+    <property>fdm/jsbsim/fcs/flaps-pos-norm</property>
     <interpolation>
       <entry><ind> 0.0 </ind><dep> 0.00 </dep></entry>
       <entry><ind> 0.5 </ind><dep> 0.13 </dep></entry>
@@ -943,7 +953,7 @@
   <animation>
     <type>rotate</type>
     <object-name>flapsG1</object-name>
-    <property>surface-positions/flaps-pos-norm</property>
+    <property>fdm/jsbsim/fcs/flaps-pos-norm</property>
     <interpolation>
       <entry><ind> 0.00 </ind><dep>  0 </dep></entry>
       <entry><ind> 0.49 </ind><dep>  0 </dep></entry>
@@ -960,7 +970,7 @@
   <animation>
     <type>rotate</type>
     <object-name>flapsD1</object-name>
-    <property>surface-positions/flaps-pos-norm</property>
+    <property>fdm/jsbsim/fcs/flaps-pos-norm</property>
     <interpolation>
       <entry><ind> 0.00 </ind><dep>  0 </dep></entry>
       <entry><ind> 0.49 </ind><dep>  0 </dep></entry>
@@ -978,7 +988,7 @@
     <type>translate</type>
     <object-name>flapsG2</object-name>
     <object-name>flapsD2</object-name>
-    <property>surface-positions/flaps-pos-norm</property>
+    <property>fdm/jsbsim/fcs/flaps-pos-norm</property>
     <interpolation>
       <entry><ind> 0.0 </ind><dep> 0.0 </dep></entry>
       <entry><ind> 0.5 </ind><dep> 1.6 </dep></entry>
@@ -993,7 +1003,7 @@
     <type>translate</type>
     <object-name>flapsG2</object-name>
     <object-name>flapsD2</object-name>
-    <property>surface-positions/flaps-pos-norm</property>
+    <property>fdm/jsbsim/fcs/flaps-pos-norm</property>
     <interpolation>
       <entry><ind> 0.0 </ind><dep> 0.00 </dep></entry>
       <entry><ind> 0.5 </ind><dep> 0.13 </dep></entry>
@@ -1008,7 +1018,7 @@
     <type>translate</type>
     <object-name>flapsG2</object-name>
     <object-name>flapsD2</object-name>
-    <property>surface-positions/flaps-pos-norm</property>
+    <property>fdm/jsbsim/fcs/flaps-pos-norm</property>
     <interpolation>
       <entry><ind> 0.0 </ind><dep> 0.0 </dep></entry>
       <entry><ind> 0.5 </ind><dep> 0.1 </dep></entry>
@@ -1022,7 +1032,7 @@
   <animation>
     <type>rotate</type>
     <object-name>flapsG2</object-name>
-    <property>surface-positions/flaps-pos-norm</property>
+    <property>fdm/jsbsim/fcs/flaps-pos-norm</property>
     <interpolation>
       <entry><ind> 0.00 </ind><dep>  0 </dep></entry>
       <entry><ind> 0.49 </ind><dep>  0 </dep></entry>
@@ -1039,7 +1049,7 @@
   <animation>
     <type>rotate</type>
     <object-name>flapsD2</object-name>
-    <property>surface-positions/flaps-pos-norm</property>
+    <property>fdm/jsbsim/fcs/flaps-pos-norm</property>
     <interpolation>
       <entry><ind> 0.00 </ind><dep>  0 </dep></entry>
       <entry><ind> 0.49 </ind><dep>  0 </dep></entry>
@@ -1309,7 +1319,7 @@
  <animation>
     <type>rotate</type>
     <object-name>TrainAvant</object-name>
-    <property>surface-positions/rudder-pos-norm</property>
+    <property>fdm/jsbsim/fcs/rudder-pos-norm</property>
     <factor> 30 </factor>
     <center>
       <x-m> -14.262 </x-m>

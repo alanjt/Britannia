@@ -95,7 +95,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<pure_gain name="fcs/elevator-tab-deg">
 			<input>-fcs/elevator-cmd-sum</input>
 			<gain>1.0</gain>
-	<!--   			<gain>-1.0</gain> -->  <!-- JSBsim bug ?? -1 recognised as 1 -->
 		</pure_gain>
 
 			<!-- Note:
@@ -141,15 +140,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<gain>1.0</gain>
 		</summer>
 
-		<pure_gain name="fcs/elevator-pos-rad">
+<!--		<pure_gain name="fcs/elevator-pos-rad">
 			<input>fcs/elevator-pos-deg</input>
-			<gain>0.008726646</gain><!-- 1/57.3 -->
+			<gain>0.008726646</gain>
 		</pure_gain>
 			
 		<pure_gain name="fcs/elevator-pos-norm">
 			<input>fcs/elevator-pos-deg</input>
-			<gain>0.02857</gain><!-- 1/35 -->
-		</pure_gain>
+			<gain>0.002857</gain>
+		</pure_gain> -->
 
 	</channel>
 
@@ -196,85 +195,67 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	</channel>
 
 	<channel name="Yaw">
-		
+
 		<pure_gain name="fcs/rudder-cmd-deg">
 			<input>fcs/rudder-cmd-norm</input><!-- from Flightgear Joystick, Keypad or Mouse -->
 			<gain>18.0</gain>
-			<output>fcs/rudder-cmd-deg</output>
 		</pure_gain>
 
 		<pure_gain name="fcs/rudder-trim-cmd-deg">
 			<input>fcs/yaw-trim-cmd-norm</input><!-- from Flightgear Joystick, Keypad or Mouse -->
 			<gain>18.0</gain>
-			<output>fcs/rudder-trim-cmd-deg</output>
 		</pure_gain>
 			
-		<summer name="fcs/rudder-pos-deg">
+		<summer name="fcs/rudder-cmd-sum">
 			<input>fcs/rudder-cmd-deg</input>
 			<input>fcs/rudder-trim-cmd-deg</input>
 			<!--			<input>fcs/afcs-rudder-cmd-deg</input>   --><!-- from AFCS -->
 			<!--			<input>fcs/afcs-yawdamper-deg</input>   --><!-- from AFCS -->
-			<clipto>
-				<min>-18</min>
-				<max>18</max>
-			</clipto>
-			<output>fcs/rudder-pos-deg</output>
+			<clipto><min>-18</min><max>18</max></clipto>
 		</summer>
+		
+<!-- move tab in opposite direction to required rudder position -->		
+		<pure_gain name="fcs/rudder-tab-deg">
+			<input>-fcs/rudder-cmd-sum</input>
+			<gain>1.0</gain>
+		</pure_gain>
+		
+		<!-- The tab becomes fully effective at 80 kts. 
+		
+			This corresponds to aero/qbar-psf of aprox 20.0. 
+			Below this speed the tabs will become progressivly less effective.
+			The rudder is affected by propeller wash, so this airspeed will reduce with engine power.-->	
+							
+		<scheduled_gain name="fcs/rudder-due-to-tab">
+			<input>fcs/rudder-tab-deg</input>
+			<gain>1.0</gain>
+			<table name="fcs/rudder-tab-effectivness">
+				<independentVar>aero/qbar-psf</independentVar>
+				<tableData>
+					0.0  0.0 
+					20.0 -1.0
+				</tableData>  
+			</table>
+			<clipto><min>-18.0</min><max>18.0</max></clipto>
+		</scheduled_gain>
+		
+		<pure_gain name="fcs/rudder-pos-deg">
+			<input>fcs/rudder-due-to-tab</input>
+			<gain>1.0</gain>
+		</pure_gain>
 			
-		<pure_gain name="fcs/rudder-pos-rad">
+<!--		<pure_gain name="fcs/rudder-pos-rad">
 			<input>fcs/rudder-pos-deg</input>
 			<gain>0.0174533</gain>
-			<output>fcs/rudder-pos-rad</output>
 		</pure_gain>
 
-		<aerosurface_scale name="fcs/rudder-pos-norm">
+		<pure_gain name="fcs/rudder-pos-norm">
 			<input>fcs/rudder-pos-deg</input>
-			<domain>
-				<min>-18.0</min>
-				<max>18.0</max>
-			</domain>
-			<range>
-				<min>-1</min>
-				<max>1</max>
-			</range>
-			<output>fcs/rudder-pos-norm</output>
-		</aerosurface_scale>
+			<gain>0.0555556</gain>
+		</pure_gain>  -->
 			
 	</channel>
 			
-	<!--			<summer name="fcs/rudder-command-sum">
-				<input>fcs/rudder-cmd-norm</input>       
-				<input>fcs/yaw-trim-cmd-norm</input>     
-				<clipto>
-					<min>-1</min>
-					<max>1</max>
-				</clipto>
-				<output>fcs/rudder-command-sum</output>
-			</summer>
-
-			<aerosurface_scale name="fcs/rudder-pos-rad">
-				<input>fcs/rudder-command-sum</input>
-				<range>
-					<min>-0.35</min>
-					<max>0.35</max>
-				</range>
-				<output>fcs/rudder-pos-rad</output>
-			</aerosurface_scale>
-
-			<aerosurface_scale name="fcs/rudder-pos-norm">
-				<input>fcs/rudder-pos-rad</input>
-				<domain>
-					<min>-0.35</min>
-					<max>0.35</max>
-				</domain>
-				<range>
-					<min>-1</min>
-					<max>1</max>
-				</range>
-				<output>fcs/rudder-pos-norm</output>
-			</aerosurface_scale>
-		</channel>  -->
-
 	<channel name="Landing Gear">
 		<kinematic name="Landing Gear Control">
 			<input>gear/gear-cmd-norm</input>
