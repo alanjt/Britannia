@@ -486,27 +486,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<output>fcs/aileron-cmd-sum</output>
 			</summer>
 
-			<aerosurface_scale name="left-aileron-pos-deg">
+			<aerosurface_scale name="aileron-port-pos-deg">
 				<input>fcs/aileron-cmd-sum</input>
 				<range>
 					<min>-15.0</min>
 					<max>19.0</max>
 				</range>
-				<output>fcs/left-aileron-pos-deg</output>
+				<output>fcs/aileron-port-pos-deg</output>
 			</aerosurface_scale>
 
-			<aerosurface_scale name="right-aileron-pos-deg">
+			<aerosurface_scale name="aileron-stbd-pos-deg">
 				<input>-fcs/aileron-cmd-sum</input>
 				<range>
 					<min>-15.0</min>
 					<max>19.0</max>
 				</range>
-				<output>fcs/right-aileron-pos-deg</output>
+				<output>fcs/aileron-stbd-pos-deg</output>
 			</aerosurface_scale>
 			
 			<summer name="aileron-difference-deg">
-				<input>-fcs/right-aileron-pos-deg</input>
-				<input>fcs/left-aileron-pos-deg</input>
+				<input>-fcs/aileron-stbd-pos-deg</input>
+				<input>fcs/aileron-port-pos-deg</input>
 				<clipto>
 					<min>-34</min>
 					<max>34</max>

@@ -4,7 +4,7 @@
 
 	<path>Britannia.ac</path>
 
-<!--	<nasal>
+	<!--	<nasal>
 		<load>
       var livery_update = aircraft.livery_update.new("Aircraft/Britannia/Models/Liveries", 10);
 
@@ -388,7 +388,7 @@
     </condition>
   </animation> -->
  
-<!-- Propeller animation - based upon code from F50/F27 --> 
+	<!-- Propeller animation - based upon code from F50/F27 -->
 	<animation>
 		<type>alpha-test</type>
 		<object-name>propdisk1</object-name>
@@ -830,7 +830,7 @@
 		</axis>
 	</animation>
 
-	<!-- Elevator control -->
+	<!-- Elevator animation -->
 
 	<animation>
 		<type>rotate</type>
@@ -848,21 +848,17 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElevatorTabPort</object-name>
-		<!--<property>fdm/jsbsim/fcs/elevator-pos-norm</property> -->
 		<property>fdm/jsbsim/fcs/elevator-tab-deg</property>
-		<!--<factor>35</factor> -->
 		<factor>1</factor>
 		<axis>
 			<x1-m>16.827</x1-m><y1-m>-7.658</y1-m><z1-m>-0.4442</z1-m>
-			<x2-m>17.327</x2-m>-0.87<y2-m></y2-m><z2-m>-0.4442</z2-m>
+			<x2-m>17.327</x2-m>-0.87<y2-m/><z2-m>-0.4442</z2-m>
 		</axis>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>ElevatorTabStbd</object-name>
-		<!--<property>fdm/jsbsim/fcs/elevator-pos-norm</property> -->
 		<property>fdm/jsbsim/fcs/elevator-tab-deg</property>
-		<!--<factor>35</factor> -->
 		<factor>1</factor>
 		<axis>
 			<x1-m>17.327</x1-m><y1-m>0.87</y1-m><z1-m>-0.4442</z1-m>
@@ -870,16 +866,39 @@
 		</axis>
 	</animation>
 
-	<!-- Aileron Control -->
+	<!-- Aileron animation -->
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AileronTabPort</object-name>
+		<property>fdm/jsbsim/fcs/aileron-port-tab-deg</property>
+		<factor>1</factor>
+		<axis>
+			<x1-m>0.545</x1-m><y1-m>-14.357</y1-m><z1-m>-0.527</z1-m>
+			<x2-m>0.294</x2-m><y2-m>-20.844</y2-m><z2-m>-0.173</z2-m>
+		</axis>
+	</animation>
+  
 	<animation>
 		<type>rotate</type>
 		<object-name>AileronPort</object-name>
 		<object-name>AileronTabPort</object-name>
-		<property>fdm/jsbsim/fcs/right-aileron-pos-deg</property>
+		<property>fdm/jsbsim/fcs/aileron-port-pos-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>-0.273</x1-m><y1-m>-14.357</y1-m><z1-m>-0.502</z1-m>
 			<x2-m>-0.154</x2-m><y2-m>-20.844</y2-m><z2-m>-0.160</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AileronTabStbd</object-name>
+		<property>fdm/jsbsim/fcs/aileron-stbd-tab-deg</property>
+		<factor>1</factor>
+		<axis>
+			<x1-m>0.294</x1-m><y1-m>20.844</y1-m><z1-m>-0.173</z1-m>
+			<x2-m>0.545</x2-m><y2-m>14.357</y2-m><z2-m>-0.527</z2-m>
 		</axis>
 	</animation>
   
@@ -887,7 +906,7 @@
 		<type>rotate</type>
 		<object-name>AileronStbd</object-name>
 		<object-name>AileronTabStbd</object-name>
-		<property>fdm/jsbsim/fcs/left-aileron-pos-deg</property>
+		<property>fdm/jsbsim/fcs/aileron-stbd-pos-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>-0.154</x1-m><y1-m>20.844</y1-m><z1-m>-0.160</z1-m>
@@ -896,27 +915,10 @@
 	</animation>
 
 	<!--
- <animation>
-    <type>rotate</type>
-    <object-name>AileronTabPort</object-name>
-    <property>fdm/jsbsim/fcs/right-aileron-pos-deg</property>
-    <factor> 1 </factor>
-    <axis>
-      <x1-m> -1.148 </x1-m> <y1-m> 11.696 </y1-m> <z1-m> -2.227 </z1-m>
-      <x2-m> -1.779 </x2-m> <y2-m> 17.613 </y2-m> <z2-m> -1.685 </z2-m>
-    </axis>
-  </animation>
+
   
-  <animation>
-    <type>rotate</type>
-    <object-name>AileronTabStbd</object-name>
-    <property>fdm/jsbsim/fcs/left-aileron-pos-deg</property>
-    <factor> 1 </factor>
-    <axis>
-      <x1-m>  0.273 </x1-m> <y1-m>-14.357 </y1-m> <z1-m>  -0.502 </z1-m>
-      <x2-m>  0.154 </x2-m> <y2-m>-20.844 </y2-m> <z2-m>  -0.164 </z2-m>
-    </axis>
-  </animation> -->
+
+-->
 
 	<!-- Flap control -->
 	<!--
@@ -1568,7 +1570,7 @@
 	<model>
 		<path>Aircraft/Britannia/Models/lights/RedLight.xml</path>
 		<offsets>
-	<!--   <x-m>-2.45026</x-m>
+			<!--   <x-m>-2.45026</x-m>
 			<y-m>-18.00150</y-m>
 			<z-m>-1.65168</z-m> -->
 			<x-m>-0.821</x-m>
@@ -1580,7 +1582,7 @@
 	<model>
 		<path>Aircraft/Britannia/Models/lights/StrobeLight.xml</path>
 		<offsets>
-	<!--   <x-m>-2.35026</x-m>
+			<!--   <x-m>-2.35026</x-m>
 			<y-m>-18.00150</y-m>
 			<z-m>-1.65168</z-m> -->
 			<x-m>-0.821</x-m>
@@ -1592,7 +1594,7 @@
 	<model>
 		<path>Aircraft/Britannia/Models/lights/GreenLight.xml</path>
 		<offsets>
-	<!--   <x-m>-2.45026</x-m>
+			<!--   <x-m>-2.45026</x-m>
 			<y-m>18.00150</y-m>
 			<z-m>-1.65168</z-m> -->
 			<x-m>-0.821</x-m>
@@ -1604,7 +1606,7 @@
 	<model>
 		<path>Aircraft/Britannia/Models/lights/StrobeLight.xml</path>
 		<offsets>
-	<!--   	<x-m>-2.35026</x-m>
+			<!--   	<x-m>-2.35026</x-m>
 			<y-m>18.00150</y-m>
 			<z-m>-1.65168</z-m>  -->
 			<x-m>-0.821</x-m>

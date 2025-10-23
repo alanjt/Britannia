@@ -69,7 +69,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			Digital Datcom is based upon this document and can do many of the calculations required, but the 
 			description in its own manual is rather terse, so the original document is needed to explain 
 			the various inputs that are required.-->
-			
+<!-- +ve is elevator down  - see Babister page 106-->			
 		<aerosurface_scale name="fcs/elevator-cmd-deg">
 			<input>fcs/elevator-cmd-norm</input>		<!-- from Flightgear Joystick, Keypad or Mouse -->
 			<zero_centered>true</zero_centered>
@@ -153,49 +153,113 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	</channel>
 
 	<channel name="Roll">
+<!-- +ve aileron is right aileron down and left aileron up - see Babister page 339 -->
+ <!-- Stbd (Right) aileron cmd (roll to the right) is +ve 
+        which results in port aileron up +ve and stbd aileron down -ve -->
+
+		<aerosurface_scale name="fcs/aileron-cmd-deg">
+			<input>fcs/aileron-cmd-norm</input>		<!-- from Flightgear Joystick, Keypad or Mouse -->
+			<zero_centered>true</zero_centered>
+			<domain><min>-1</min><max>1</max></domain>
+			<range><min>-19.0</min><max>19.0</max></range>
+		</aerosurface_scale>
+		
+		<aerosurface_scale name="fcs/aileron-trim-cmd-deg">
+			<input>fcs/roll-trim-cmd-norm</input>		<!-- from Flightgear Joystick or Keypad -->
+			<zero_centered>true</zero_centered>
+			<domain><min>-1</min><max>1</max></domain>
+			<range><min>-19.0</min><max>19.0</max></range>
+		</aerosurface_scale>
+		
 		<summer name="fcs/aileron-cmd-sum">
-			<input>fcs/aileron-cmd-norm</input><!-- from Flightgear Joystick, Keypad or Mouse -->
-			<input>fcs/roll-trim-cmd-norm</input><!-- from Flightgear Joystick or Keypad -->
-			<clipto>
-				<min>-1</min>
-				<max>1</max>
-			</clipto>
-			<output>fcs/aileron-cmd-sum</output>
+			<input>fcs/aileron-cmd-deg</input>
+			<input>fcs/aileron-trim-cmd-deg</input>
+	<!--    <input>fcs/afcs-elevator-cmd-deg</input>-->		<!-- from AFCS -->
+			<clipto><min>-19.0</min><max>19.0</max></clipto>
 		</summer>
-
-		<aerosurface_scale name="fcs/left-aileron-pos-deg">
-			<input>fcs/aileron-cmd-sum</input>
-			<range>
-				<min>-15.0</min>
-				<max>19.0</max>
-			</range>
-			<output>fcs/left-aileron-pos-deg</output>
-		</aerosurface_scale>
-
-		<aerosurface_scale name="right-aileron-pos-deg">
-			<!--				<input>fcs/afcs-aileron-cmd-deg</input> --><!-- from AFCS -->
+	
+		<pure_gain name="fcs/aileron-port-tab-deg">
 			<input>-fcs/aileron-cmd-sum</input>
-			<range>
-				<min>-15.0</min>
-				<max>19.0</max>
-			</range>
-			<output>fcs/right-aileron-pos-deg</output>
-		</aerosurface_scale>
-			
+			<gain>1.0</gain>
+			<clipto><min>-19.0</min><max>15.0</max></clipto>
+		</pure_gain>
+
+		<pure_gain name="fcs/aileron-stbd-tab-deg">
+			<input>fcs/aileron-cmd-sum</input>
+			<gain>1.0</gain>
+			<clipto><min>-19.0</min><max>15.0</max></clipto>
+		</pure_gain>
+	
+		<scheduled_gain name="fcs/aileron-port-due-to-tab">
+			<input>-fcs/aileron-port-tab-deg</input>
+			<gain>1.0</gain>
+			<table name="fcs/aileron-port-tab-effectivness">
+				<independentVar>aero/qbar-psf</independentVar>
+				<tableData>
+					0.0  0.0  <!--test -->
+					20.0 -1.0
+				</tableData>  
+			</table>
+			<clipto><min>-15.0</min><max>19.0</max></clipto>
+		</scheduled_gain>
+		
+		<scheduled_gain name="fcs/aileron-stbd-due-to-tab">
+			<input>-fcs/aileron-stbd-tab-deg</input>
+			<gain>1.0</gain>
+			<table name="fcs/aileron-stbd-tab-effectivness">
+				<independentVar>aero/qbar-psf</independentVar>
+				<tableData>
+					0.0  0.0 <!--test -->
+					20.0 -1.0
+				</tableData>  
+			</table>
+			<clipto><min>-15.0</min><max>19.0</max></clipto>
+		</scheduled_gain>		
+		
+		<summer name="fcs/aileron-port-gravity-effect">
+			<input>fcs/aileron-port-tab-effectivness</input>
+			<bias>1.0</bias>
+		</summer>
+		<summer name="fcs/aileron-stbd-gravity-effect">
+			<input>fcs/aileron-stbd-tab-effectivness</input>
+			<bias>1.0</bias>
+		</summer>
+		
+		<pure_gain name="fcs/aileron-port-due-to-gravity">
+			<input>-fcs/aileron-port-gravity-effect</input>
+			<gain>15.0</gain>
+<!--			<gain>0.0</gain> --> <!--test -->	
+		</pure_gain>
+		<pure_gain name="fcs/aileron-stbd-due-to-gravity">
+			<input>-fcs/aileron-stbd-gravity-effect</input>
+			<gain>15.0</gain>
+<!--			<gain>0.0</gain> --> <!--test -->			
+		</pure_gain>
+		
+		<summer name="fcs/aileron-port-pos-deg">
+			<input>fcs/aileron-port-due-to-gravity</input>  
+			<input>fcs/aileron-port-due-to-tab</input>
+			<gain>1.0</gain>
+		</summer>
+		<summer name="fcs/aileron-stbd-pos-deg">
+			<input>fcs/aileron-stbd-due-to-gravity</input>  
+			<input>fcs/aileron-stbd-due-to-tab</input>
+			<gain>1.0</gain>
+		</summer>
+					
 		<summer name="fcs/aileron-difference-deg">
-			<input>-fcs/right-aileron-pos-deg</input>
-			<input>fcs/left-aileron-pos-deg</input>
+			<input>fcs/aileron-stbd-pos-deg</input>
+			<input>-fcs/aileron-port-pos-deg</input>
 			<clipto>
 				<min>-34</min>
 				<max>34</max>
 			</clipto>
-			<output>fcs/aileron-difference-deg</output>
 		</summer>
 			
 	</channel>
 
 	<channel name="Yaw">
-
+<!-- +ve is rudder to the left  - see Babister page 339-->
 		<pure_gain name="fcs/rudder-cmd-deg">
 			<input>fcs/rudder-cmd-norm</input><!-- from Flightgear Joystick, Keypad or Mouse -->
 			<gain>18.0</gain>
